@@ -229,7 +229,7 @@ button.getStarted:hover {
     font-size: 30px;
   }
 
-  
+
   /* background-designBot */
   .background-designBot {
     position: fixed;
@@ -269,12 +269,12 @@ button.getStarted:hover {
 
   .followUs {
     font-size: 26px;
-    margin: 785px 0 0 190px;
+    margin: 765px 0 0 190px;
   }
 
   .social-icons {
     width: 100px;
-    margin: 820px 0 0 240px;
+    margin: 800px 0 0 240px;
     padding: 0 20px 0 20px;
     display: flex;
     justify-content: center;
