@@ -206,7 +206,7 @@ button.getStarted:hover {
   }
 
   .quote {
-    font-size: 55px;
+    font-size: 50px;
     margin: 280px 40px 0;
     padding-right: 40px;
     text-align: center;
@@ -269,12 +269,12 @@ button.getStarted:hover {
 
   .followUs {
     font-size: 26px;
-    margin: 765px 0 0 190px;
+    margin: 715px 0 0 190px;
   }
 
   .social-icons {
     width: 100px;
-    margin: 800px 0 0 240px;
+    margin: 750px 0 0 240px;
     padding: 0 20px 0 20px;
     display: flex;
     justify-content: center;
