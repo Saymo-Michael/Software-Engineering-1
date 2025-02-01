@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Container } from "react-bootstrap";
-import logo from "./logo.JPG"; 
-import phone from "./phone.JPG";
+import logo from "../Images/logo.png"; 
+import phone from "../Images/phone.png";
 import { FaArrowRight } from "react-icons/fa";
 import { LuFacebook } from "react-icons/lu";
 import { SiInstagram } from "react-icons/si";
