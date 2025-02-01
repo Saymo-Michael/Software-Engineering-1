@@ -1,12 +1,20 @@
 import React from "react";
 
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import logo from "./logo.JPG"; 
 import phoneQR from "./phoneQR.JPG";
 
 import "./ConnectToPhone.css";
 
 const ConnectToPhone = () => {
+    
+  const navigate = useNavigate();  
+  
+  const handleGoBackClick = () => {
+    navigate("/");
+  };
+
   return (
     <Container fluid className="ConnectToPhone">
 
@@ -23,6 +31,8 @@ const ConnectToPhone = () => {
         <div className="quoteCPT">Connect your smartphone.</div> 
 
         <button className="continue" > Continue </button>
+
+        <div className="goBack" onClick={handleGoBackClick}>Go Back</div>
 
         <div className="phoneQR-container">
             <img src={phoneQR} alt="DigitalGap PhoneQR" className="phoneQR-display" draggable="false"/>
