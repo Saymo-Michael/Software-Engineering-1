@@ -2,8 +2,9 @@ import React from "react";
 
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import logo from "./logo.JPG"; 
-import phoneQR from "./phoneQR.JPG";
+import logo from "../Images/logo.png"; 
+import phoneQR from "../Images/phoneQR.png";
+
 
 import "./ConnectToPhone.css";
 
