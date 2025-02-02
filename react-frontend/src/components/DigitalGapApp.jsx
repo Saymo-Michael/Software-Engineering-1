@@ -4,8 +4,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Button } from "react-bootstrap";
-import logo from "../Images/logo.png";
-import phone from "../Images/phone.png";
 import { FaArrowRight } from "react-icons/fa";
 import { LuFacebook } from "react-icons/lu";
 import { SiInstagram } from "react-icons/si";
