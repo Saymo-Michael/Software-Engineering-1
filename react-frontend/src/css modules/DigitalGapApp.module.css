@@ -28,41 +28,37 @@
   z-index: 999;
   display: flex;
   flex-direction: column;
+  justify-items: end;
   --background-color: red;
 }
 
 .BarTop {
-  position: relative;
-  top: -55px;
   height: 120px;
   border-radius: 50px 0 0 50px;
 }
 
 .orangeTop {
-  right: -75px;
+  width: 90%;
   margin-bottom: -30px;
   z-index: 3;
   background-color: var(--orange);
 }
 
 .blueTop {
-  right: -35px;
+  width: 95%;
   margin-bottom: -40px;
   z-index: 2;
   background-color: var(--blue);
 }
 
 .yellowTop {
+  width: 100%;
   z-index: 1;
   background-color: var(--yellow);
 }
 
 /* quote-container */
 .quote_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: -40px 0 0 65px!important;
   --background-color: red;
 }
 
@@ -103,7 +99,6 @@ button.getStarted:hover {
 }
 
 .footer_container {
-  display: flex;
   --background-color: yellow;
 }
 
@@ -116,39 +111,32 @@ button.getStarted:hover {
 }
 
 .BarBot {
-  position: relative;
-  bottom: -40px;
-  width: 100%;
-  height: 120px;
+  height: 90px;
   border-radius: 0 50px 50px 0;
 }
 
 .orangeBot {
-  left: -45%;
+  width: 90%;
   margin-bottom: -30px;
   z-index: 3;
   background-color: var(--orange);
 }
 
 .blueBot {
-  left: -20%;
+  width: 100%;
   margin-bottom: -40px;
   z-index: 2;
   background-color: var(--blue);
 }
 
 .yellowBot {
-  left: -70%;
+  width: 80%;
   z-index: 1;
   background-color: var(--yellow);
 }
 
 .followUs_container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin-right: -30px;
-  width: 100%;
   --background-color: brown;
 }
 
@@ -172,220 +160,94 @@ button.getStarted:hover {
   --background-color: white;
 }
 
-.phone {
-  --background-color: red;
-}
-
 .phone_display {
+  width: 70%;
   --background-color: black;
-  display: none;
-  position: relative;
-  bottom: -90px;
-  left: -150px;
-  width: 400px;
-  height: 500px;
-  background-image: url(../Images/phone.png);
-  background-repeat: no-repeat;
-  background-size: 100%;
 }
 
 .container {
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   --background-color: black;
 }
 
-@media (min-width: 375px) {
-  .followUs_container {
-    justify-content: flex-end;
-  }
-  .quote_container {
-    margin: -40px 0 0 100px!important;
-  }
-}
-
-@media (min-width: 412px) {
-  .followUs_container {
-    justify-content: flex-end;
-  }
-  .quote_container {
-    margin: -40px 0 0 100px!important;
-  }
-}
-/* xs */
-@media (min-width: 475px) {
-  .quote_container {
-    max-width: 475px;
-    margin-left: 100px !important;
-    --border: 5px solid red;
-  }
-  .quote {
-    font-size: 50px;
-  }
-  Button.getStarted {
-    width: 300px;
-    font-size: 38px;
-  }
-  .arrowRight {
-    margin: 0 0 10px 20px;
-    font-size: 40px;
-  }
-}
-
-/* sm */
-@media (min-width: 640px) {
-  .quote_container {
-    margin-left: 100px !important;
-  }
-  .background_designTop {
-    max-width: 640px;
-  }
-}
-
-/* md */
-@media (min-width: 768px) {
-  .quote_container {
-    margin-left: 190px !important;
-  }
-  .followUs {
-    font-size: 40px;
-    font-weight: 700;
-  }
-  .social_icons a {
-    margin: 0 4px 0 7px;
-    font-size: 35px;
-  }
-}
-
-/* lg */
-@media (min-width: 1024px) {
-  .quote_container {
-    margin-left: 50px !important;
-  }
-  .quote {
-    font-size: 70px;
-  }
-  .followUs_container {
-    margin-right: 20px !important;
-  }
-  .container {
-    max-width: 1024;
-    overflow: hidden;
-  }
-  .phone_display {
-    display: block;
-  }
-  .social_icons {
-    margin-right: 90px;
-  }
-  .social_icons a {
-    margin: 0 4px 0 20px;
-    font-size: 35px;
-  }
-}
-
-/* xl */
-@media (min-width: 1280px) {
-  .quote_container {
-    margin-left: 100px !important;
-  }
-  .quote {
-    font-size: 80px;
-  }
-  .phone_display {
-    display: block;
-    bottom: -20px;
-    left: -150px;
-    width: 500px;
-    height: 700px;
-  }
-}
-
-/* 2xl */
-@media (min-width: 1536px) {
-  .quote_container {
-    margin-left: 400px !important;
-    width: 1000px;
-  }
-  .quote {
-    font-size: 100px;
-    width: 600px;
+@media (min-width: 320px) {
+  .logo {
+    width: 50px;
+    height: 50px;
   }
 
-  .phone_display {
-    display: block;
-    bottom: -32px;
-    left: -100px;
-    width: 500px;
-    height: 610px;
-  }
-
-  .followUs_container {
-    margin-right: 20px !important;
-    line-height: 1.2;
-  } 
-  .followUs {
-    font-size: 50px;
-  }
-  .social_icons {
-    margin-right: 100px;
-  }
-  .social_icons a {
-    margin: 0 4px 0 20px;
-    font-size: 45px;
-  }   
-
-  .BarBot {
-    bottom: -40px;
-  }
-
-  .orangeBot {
-    left: -35%;
-    margin-bottom: -30px;
-    z-index: 3;
-    background-color: var(--orange);
-  }
-  
-  .blueBot {
-    left: -20%;
-    margin-bottom: -40px;
-    z-index: 2;
-    background-color: var(--blue);
-  }
-  
-  .yellowBot {
-    left: -50%;
-    z-index: 1;
-    background-color: var(--yellow);
-  }
-    
   .BarTop {
-    top: -45px;
+    height: 90px;
+  }
+  .BarBot {
+    height: 90px;
+  }
+}
+
+@media (min-width: 370px) {
+  .logo {
+    width: 70px;
+    height: 70px;
   }
 
-  .orangeTop {
-    right: -30px;
-    margin-bottom: -30px;
-    z-index: 3;
-    background-color: var(--orange);
+  .BarTop {
+    height: 110px;
   }
+  .BarBot {
+    height: 110px;
+  }
+}
 
-  .blueTop {
-    right: 35px;
-    width: 1000px;
-    margin-bottom: -40px;
-    z-index: 2;
-    background-color: var(--blue);
+@media (min-width: 425px) {
+  .BarTop {
+    height: 120px;
   }
+  .BarBot {
+    height: 120px;
+  }
+}
 
-  .yellowTop {
-    right: 80px;
-    width: 1000px;
-    z-index: 1;
-    background-color: var(--yellow);
+@media (min-width: 768px) {
+  .quote {
+    margin: 0 0 20px 0;
+    font-size: 55px;
+    font-weight: 900;
   }
+  .phone_display {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quote {
+    font-size: 60px;
+    font-weight: 900;
+  }
+  .phone_display {
+    width: 60%;
+  }
+  .BarTop {
+    height: 90px;
+  }
+  .BarBot {
+    height: 90px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .quote {
+    font-size: 65px;
+    font-weight: 900;
+  }
+  .phone_display {
+    width: 70%;
+  }
+  .BarTop {
+    height: 120px;
+  }
+  .BarBot {
+    height: 120px;
+  }
+}
+
+@media (min-width: 2560px) {
 }
