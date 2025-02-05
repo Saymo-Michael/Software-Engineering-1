@@ -57,11 +57,6 @@
   background-color: var(--yellow);
 }
 
-/* quote-container */
-.quote_container {
-  --background-color: red;
-}
-
 /* quote */
 .quote {
   z-index: 1000;
@@ -96,10 +91,6 @@ button.getStarted:hover {
   color: black;
   margin: 0 0 5px 10px;
   font-size: 30px;
-}
-
-.footer_container {
-  --background-color: yellow;
 }
 
 /* background-designBot */
@@ -223,7 +214,7 @@ button.getStarted:hover {
     font-weight: 900;
   }
   .phone_display {
-    width: 60%;
+    width: 58%;
   }
   .BarTop {
     height: 90px;
