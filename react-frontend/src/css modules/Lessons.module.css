@@ -1,0 +1,256 @@
+/* background-designTop */
+:root {
+    --orange: #f78c6b;
+    --blue: #4ac0c0;
+    --yellow: #ffd166;
+  }
+  
+  /* logo-container */
+  .logo_container {
+    z-index: 1000;
+    --background-color: green;
+  }
+  
+  .logo {
+    margin: 30px 0 0 20px;
+    width: 70px;
+    height: 70px;
+    background-image: url(../Images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .BarShadow {
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* background-designTop */
+  .background_designTop {
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    --background-color: red;
+  }
+  
+  .BarTop {
+    height: 90px;
+    border-radius: 0 50px 50px 0;
+  }
+  
+  .orangeTop {
+    width: 40%;
+    margin-bottom: -30px;
+    z-index: 3;
+    background-color: var(--orange);
+  }
+  
+  .blueTop {
+    width: 50%;
+    margin-bottom: -40px;
+    z-index: 2;
+    background-color: var(--blue);
+  }
+  
+  .yellowTop {
+    width: 30%;
+    z-index: 1;
+    background-color: var(--yellow);
+  }
+  
+  /* quote */
+  .quote {
+    z-index: 1000;
+    word-wrap: break-word;
+    margin: 0 0 20px 0;
+    font-family: "Big Shoulders Display";
+    font-size: 50px;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 500;
+    --background-color: violet;
+  }
+  
+  /* button.getStarted */
+  Button.getStarted {
+    width: 210px;
+    z-index: 1000;
+    font-family: "Big Shoulders Display";
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+    border-color: black;
+    background-color: transparent;
+    border-radius: 50px;
+  }
+  
+  button.getStarted:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+  
+  .arrowLeft {
+    color: black;
+    margin: 0 5px 5px 0;
+    font-size: 20px;
+  }
+  
+  /* a.goBack */
+  .goBack {
+    text-decoration: none;
+    z-index: 1000;
+    color: black;
+    font-family: "Big Shoulders Display";
+    font-size: 30px;
+    font-weight: 500;
+  }
+  
+  /* background-designBot */
+  .background_designBot {
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
+    --background-color: red;
+  }
+  
+  .BarBot {
+    height: 120px;
+    border-radius: 50px 0 0 50px;
+  }
+  
+  .orangeBot {
+    width: 90%;
+    margin-bottom: -30px;
+    z-index: 3;
+    background-color: var(--orange);
+  }
+  
+  .blueBot {
+    width: 95%;
+    margin-bottom: -40px;
+    z-index: 2;
+    background-color: var(--blue);
+  }
+  
+  .yellowBot {
+    width: 100%;
+    z-index: 1;
+    background-color: var(--yellow);
+  }
+  
+  .followUs_container {
+    margin-right: -30px;
+    --background-color: brown;
+  }
+  
+  .followUs {
+    z-index: 1000;
+    font-family: "Big Shoulders Display";
+    font-size: 25px;
+    font-weight: 700;
+  }
+  
+  .social_icons {
+    z-index: 1000;
+    display: flex;
+    --background-color: red;
+  }
+  
+  .social_icons a {
+    color: black;
+    margin: 0 4px 0 4px;
+    font-size: 30px;
+    --background-color: white;
+  }
+  
+  .phone_display {
+    width: 70%;
+    --background-color: black;
+  }
+  
+  .container {
+    --background-color: black;
+  }
+  
+  @media (min-width: 320px) {
+    .logo {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .BarTop {
+      height: 90px;
+    }
+    .BarBot {
+      height: 90px;
+    }
+  }
+  
+  @media (min-width: 370px) {
+    .logo {
+      width: 70px;
+      height: 70px;
+    }
+  
+    .BarTop {
+      height: 110px;
+    }
+    .BarBot {
+      height: 110px;
+    }
+  }
+  
+  @media (min-width: 425px) {
+    .BarTop {
+      height: 120px;
+    }
+    .BarBot {
+      height: 120px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .quote {
+      margin: 0 0 20px 0;
+      font-size: 55px;
+      font-weight: 900;
+    }
+    .phone_display {
+      width: 105%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .quote {
+      font-size: 60px;
+      font-weight: 900;
+    }
+    .phone_display {
+      width: 70%;
+    }
+    .BarTop {
+      height: 85px;
+    }
+    .BarBot {
+      height: 85px;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .quote {
+      font-size: 65px;
+      font-weight: 900;
+    }
+    .phone_display {
+      width: 100%;
+    }
+    .BarTop {
+      height: 120px;
+    }
+    .BarBot {
+      height: 120px;
+    }
+  }
+  
+  @media (min-width: 2560px) {
+  }
+  
