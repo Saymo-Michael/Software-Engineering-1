@@ -204,7 +204,7 @@ button.getStarted:hover {
     font-weight: 900;
   }
   .phone_display {
-    width: 100%;
+    width: 80%;  
   }
 }
 
@@ -214,29 +214,41 @@ button.getStarted:hover {
     font-weight: 900;
   }
   .phone_display {
-    width: 58%;
+    width: 80%;
   }
   .BarTop {
     height: 90px;
   }
   .BarBot {
     height: 90px;
+  }
+  .followUs {
+    font-size: 35px;
+  }
+  .social_icons a{
+    font-size: 35px;
   }
 }
 
 @media (min-width: 1440px) {
   .quote {
-    font-size: 65px;
+    font-size: 85px;
     font-weight: 900;
   }
   .phone_display {
-    width: 70%;
+    width: 60%;
   }
   .BarTop {
     height: 120px;
   }
   .BarBot {
     height: 120px;
+  } 
+  .followUs {
+    font-size: 45px;
+  }
+  .social_icons a{
+    font-size: 40px;
   }
 }
 
