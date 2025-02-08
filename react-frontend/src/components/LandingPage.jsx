@@ -92,8 +92,8 @@ const LandingPage = () => {
 
         {/* Right side - Single merged row */}
         <Col md={6} className={clsx(Style.phone_container, "p-0 m-0")}>
-          <div className={Style.phone}>
-            <Image src={phone} fluid alt="Phone Display" className="p-0 m-0" draggable="false" />
+          <div>
+            <Image src={phone} fluid alt="Phone Display" className={Style.phone} draggable="false" />
           </div>
         </Col>
       </Row>

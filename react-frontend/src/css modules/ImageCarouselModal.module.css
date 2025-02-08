@@ -1,0 +1,103 @@
+/* Modal Overlay */
+.carouselModalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Carousel styling */
+.carousel {
+  width: 100%;  /* Full width of modal */
+  max-width: 900px;  /* Limit the maximum width */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow: hidden;  /* Prevent overflow */
+  position: relative;
+}
+
+/* Image Styling */
+.carousel .carousel-item img {
+  width: 100%;  /* Ensure images fill the container */
+  height: auto;  /* Maintain aspect ratio */
+  object-fit: fill;  /* Preserve the image's aspect ratio */
+  border-radius: 8px;  /* Add rounded corners to the images */
+  display: block;
+  margin: 0 auto;  /* Center the images */
+  max-width: 500px;  /* Set a max width */
+  max-height: 400px;  /* Set a max height */
+}
+
+/* Styling for the close button */
+.closeModalButton {
+  position: absolute;
+  top: 20px;  
+  right: 20px;  
+  background-color: #333333;  
+  color: white;
+  font-size: 20px;  
+  padding: 10px 16px;  
+  border-radius: 8px;  
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;  
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+}
+
+/* Hover effect for close button */
+.closeModalButton:hover {
+  background-color: #555555; 
+  transform: scale(1.05);  
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);  
+}
+
+/* Focus effect for close button */
+.closeModalButton:focus {
+  outline: none;  
+  box-shadow: 0 0 0 4px rgba(51, 51, 51, 0.4);  
+}
+
+/* Active state for close button */
+.closeModalButton:active {
+  transform: scale(1);  
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+}
+
+/* Navigation Buttons Below Image */
+.navButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.navButton {
+  background-color: #4ac0c0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 48%;
+  text-align: center;
+}
+
+.navButton:hover {
+  background-color: #2c8c8c;
+}
+
+/* Carousel adjustments for better accessibility */
+@media (max-width: 768px) {
+  .carousel {
+    width: 95%;  /* More responsive width on smaller screens */
+  }
+}
