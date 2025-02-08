@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { TiMessages } from 'react-icons/ti';  
-import Modal from 'react-modal';
-import ImageCarouselModal from './components/ImageCarouselModal'; 
-import LandingPage from './components/LandingPage';
-import ConnectToPhone from './components/ConnectToPhone';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { TiMessages } from "react-icons/ti";
+import Modal from "react-modal";
+import ImageCarouselModal from "./components/ImageCarouselModal";
+import LandingPage from "./components/LandingPage";
+import ConnectToPhone from "./components/ConnectToPhone";
+import ConfidentAssesment from "./components/ConfidentAssesment";
+import Lessons from "./components/Lessons";
 
-import './App.css';  
+import "./App.css";
 
-Modal.setAppElement('#root'); 
+Modal.setAppElement("#root");
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => setIsModalOpen(true);  
-  const closeModal = () => setIsModalOpen(false); 
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className="App">
@@ -22,6 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/connect-to-phone" element={<ConnectToPhone />} />
+          <Route path="/confident-assesment" element={<ConfidentAssesment />} />
+          <Route path="/lessons" element={<Lessons />} />
         </Routes>
       </Router>
 
@@ -34,7 +38,7 @@ function App() {
       {/* Modal for Image Carousel */}
       <Modal
         isOpen={isModalOpen}
-        onRequestClose={closeModal} 
+        onRequestClose={closeModal}
         contentLabel="Image Carousel Modal"
         className="modal-content"
         overlayClassName="modal-overlay"

@@ -10,7 +10,7 @@ import { SiInstagram } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiYoutube } from "react-icons/fi";
 
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import clsx from "clsx";
 
@@ -18,11 +18,15 @@ import Style from "../css modules/ConnectToPhone.module.css";
 import phone from "../Images/phoneQR.png";
 
 const ConnectToPhone = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // const handleGoBackClick = () => {
   //   navigate("/");
   // };
+
+  const handleContinueClick = () => {
+    navigate("/confident-assesment");
+  };
 
   return (
     <Container fluid className="d-flex flex-column min-vh-100 p-0 m-0">
@@ -88,6 +92,7 @@ const ConnectToPhone = () => {
                 <Button
                   className={clsx(Style.getStarted, "mb-3")}
                   type="button"
+                  onClick={handleContinueClick}
                 >
                   Continue
                 </Button>
