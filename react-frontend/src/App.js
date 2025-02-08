@@ -1,17 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import DigitalGapApp from "./components/DigitalGapApp";
-// import ConnectToPhone from "./components/ConnectToPhone";
-import GridLayout from "./components/GridLayout";
+import ConnectToPhone from "./components/ConnectToPhone";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          {/* <Route path="/" element={<DigitalGapApp />} />
-          <Route path="/connect-to-phone" element={<ConnectToPhone />} /> */}
-          <Route path="/" element={<GridLayout />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/connect-to-phone" element={<ConnectToPhone />} /> 
         </Routes>
       </Router>
     </div>
