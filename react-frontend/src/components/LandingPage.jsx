@@ -18,9 +18,9 @@ import mingming from "../Images/mingming.webp";
 
 import clsx from "clsx";
 
-import Style from "../css modules/GridLayout.module.css";
+import Style from "../css modules/LandingPage.module.css";
 
-const GridLayout = () => {
+const LandingPage = () => {
   const navigate = useNavigate();
 
   const aboutUsRef = useRef(null);
@@ -178,4 +178,4 @@ const GridLayout = () => {
   );
 };
 
-export default GridLayout;
+export default LandingPage;
