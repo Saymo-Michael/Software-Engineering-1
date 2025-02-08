@@ -47,8 +47,8 @@ const ImageCarouselModal = ({ closeModal }) => {
 
         {/* Navigation buttons (Next and Previous) inside the modal */}
         <div className={Style.carouselControls}>
-          <button className="prev-btn" onClick={handlePrev}>Previous</button>
-          <button className="next-btn" onClick={handleNext}>Next</button>
+          <button className={Style.prevButton} onClick={handlePrev}>Previous</button>
+          <button className={Style.nextButton} onClick={handleNext}>Next</button>
         </div>
       </div>
     </div>
