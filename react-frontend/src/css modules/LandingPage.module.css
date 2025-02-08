@@ -96,15 +96,14 @@
   
   .learnMoreText_container {
     font-family: "Big Shoulders Display"; 
-    font-size: 20px;
-    font-weight: 400;
     margin: 0 0 10% 18%;
   }
 
   .learnMoreText {
-    font-family: "Big Shoulders Display";
     width: fit-content;
-    margin: 0 0 5px 10px;
+    font-family: "Big Shoulders Display";
+    font-size: 20px;
+    font-weight: 400;
     text-decoration: none;
     color: black;
   }
@@ -211,7 +210,7 @@
     display: flex;
     flex-direction: center;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     --background-color: black;
   }
 
@@ -236,7 +235,7 @@
   .devName {
     display: flex;
     font-weight: bold;
-    line-height: 8px;
+    line-height: 15px;
     font-size: 18px;
     margin-top: 5px;
   }
@@ -278,7 +277,7 @@
       width: 50px;
       height: 50px;
     }
-  
+
     .BarTop {
       height: 90px;
     }
@@ -292,7 +291,6 @@
       width: 70px;
       height: 70px;
     }
-  
     .BarTop {
       height: 110px;
     }
@@ -312,22 +310,36 @@
   
   @media (min-width: 768px) {
     .quote {
-      margin: 0 0 20px 0;
-      font-size: 55px;
+      margin: 30px 0 20px 0;
+      font-size: 100px;
       font-weight: 900;
     }
-    .phone_display {
-      width: 80%;  
+    Button.getStarted {
+      margin: 0 0 1% 20%;
+      border-color: black;
+      background-color: transparent;
+      border-radius: 50px;
+    }
+    .learnMoreText {
+      font-size: 25px;
+      font-family: "Big Shoulders Display";
+      margin: 0 0 1% 8%;
+    }
+    .aboutUsText {
+      font-size: 35px;
+    }
+    .aboutUsTextP {
+      font-size: 25px;
     }
   }
   
   @media (min-width: 1024px) {
     .quote {
-      font-size: 60px;
+      font-size: 85px;
       font-weight: 900;
     }
-    .phone_display {
-      width: 80%;
+    .phone_container {
+      display: flex;
     }
     .BarTop {
       height: 90px;
@@ -338,6 +350,12 @@
     .followUs {
       font-size: 35px;
     }
+    .devPicture {
+      margin: 2% 10% 0 8%;
+    }
+    .devTeamSection {
+      width: 70%;
+    }
     .social_icons a{
       font-size: 35px;
     }
@@ -345,11 +363,8 @@
   
   @media (min-width: 1440px) {
     .quote {
-      font-size: 85px;
-      font-weight: 900;
-    }
-    .phone_container {
-      display: flex;
+      font-size: 110px;
+      margin: 0 0 1% 18%;
     }
     .BarTop {
       height: 120px;
@@ -362,6 +377,34 @@
     }
     .social_icons a{
       font-size: 40px;
+    }  
+    Button.getStarted {
+      margin: 0 0 1% 45%;
+    }
+    .learnMoreText_container {
+      margin: 0 0 2% 45%;
+    }
+    .aboutUsText {
+      font-size: 45px;
+      margin: 10% 0 0 10%;
+    }
+    .devTeamTitle {
+      font-size: 25px;
+    }
+    .devProfiles_container {
+      justify-content: center;
+    }
+    .devPicture {
+      width: 50px;
+      height: 75px;
+      margin: 2% 5% 0 2%;
+    }
+    .devName {
+      font-size: 25px;
+      margin-top: 5px;
+    }
+    .devRole {
+      font-size: 18px;
     }
   }
   
