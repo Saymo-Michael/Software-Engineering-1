@@ -177,9 +177,8 @@
   }
 
   .phone {
-    margin: 10%;
-    padding: 0;
-    background-color: black;
+    width: 550px;
+    height: auto;
   }
 
   /* Development Team Section */
@@ -405,6 +404,12 @@
     }
     .devRole {
       font-size: 18px;
+    }
+    .social_icons {
+      justify-content: center;
+    }
+    .social_icons a {
+      margin: 0 0 0 20px;
     }
   }
   
