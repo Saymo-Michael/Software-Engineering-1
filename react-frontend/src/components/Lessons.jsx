@@ -14,25 +14,34 @@ import { useNavigate } from "react-router-dom";
 
 import clsx from "clsx";
 
-import Style from "../css modules/ConnectToPhone.module.css";
-import phone from "../Images/phoneQR.png";
+import Style from "../css modules/Lessons.module.css";
 
 const Lessons = () => {
   const navigate = useNavigate();
 
-  const handleGoBackClick = () => {
-    navigate("/");
+  const handleContinueClick = () => {
+    navigate("/lessons");
   };
 
   return (
-    <Container fluid className="d-flex flex-column min-vh-100 p-0 m-0">
-      {/* Top Row: Only two squares (Square 1 and Square 2) */}
+    <Container
+      fluid
+      className="d-flex flex-column min-vh-100 p-0 m-0"
+      style={{
+        border: "2px solid blue",
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Row className="p-0 m-0">
         <Col
           className={clsx(
             Style.background_designBot,
             "justify-content-end p-0 m-0"
           )}
+          style={{ backgroundColor: "green" }}
         >
           <div
             className={clsx(Style.BarShadow, Style.BarTop, Style.orangeTop)}
@@ -47,120 +56,81 @@ const Lessons = () => {
         <Col
           className={clsx(
             Style.logo_container,
+            "d-flex justify-content-start ps-5"
+          )}
+          style={{ backgroundColor: "violet" }}
+        >
+          <div className={Style.logo}></div>
+        </Col>
+        <Col>back button here</Col>
+      </Row>{" "}
+      {/* Top Section */}
+      {/* Bottom Section with Columns */}
+      <Row style={{ flexGrow: 1, display: "flex" }}>
+        <Col
+          className={clsx(
+            Style.logo_container,
             "d-flex justify-content-end pe-5"
           )}
         >
           <div className={Style.logo}></div>
         </Col>
-      </Row>
+        <Col className="" style={{ backgroundColor: "lightblue" }}>
+          <Container className="d-flex flex-column justify-content-start">
+            <a>Lesson 1</a>
+            <a>Getting Started with Your Smartphone</a>
+            <Button variant="primary">Start</Button>
+          </Container>
 
-      {/* Second Grouped Row: Left nested grid and right merged square */}
-      <Row className="d-flex flex-grow-1 p-0 m-0">
-        {/* Phone Grid: Nested grid */}
-        <Col
-          lg={5}
-          md={6}
-          className="d-none d-md-block align-self-end p-0 m-0 d-flex"
-        >
-          <Container
-            className={clsx(
-              Style.phone_display,
-              "d-flex justify-content-center align-items-center"
-            )}
-          >
-            <Image src={phone} fluid alt="Phone Display" className="p-0 m-0" />
+          <Container className="d-flex flex-column justify-content-start">
+            <a>Lesson 2</a>
+            <a>Essential Smartphone Functions</a>
+            <Button variant="primary">Start</Button>
+          </Container>
+
+          <Container className="d-flex flex-column justify-content-start">
+            <a>Lesson 3</a>
+            <a>Personalization & Troubleshooting</a>
+            <Button variant="primary">Start</Button>
           </Container>
         </Col>
 
-        {/* Right nested grid: Nested grid */}
         <Col
-          lg={4}
-          md={6}
-          xs={12}
-          className="d-flex flex-column flex-grow-1 p-0 m-0"
+          style={{
+            backgroundColor: "lightgreen",
+          }}
         >
-          {/* Top nested row: Merged rectangle for Square 4 and 5 */}
-          <Row className="p-0 pt-4 pb-3 m-0">
-            <Col className="d-flex flex-column align-items-center">
-              <div className={Style.quote}>Connect your smartphone.</div>
-
-              <div className="d-flex flex-column align-items-end ">
-                <Button
-                  className={clsx(Style.getStarted, "mb-3")}
-                  type="button"
-                >
-                  Continue
-                </Button>
-                <a className={Style.goBack} onClick={handleGoBackClick}>
-                  <FaArrowLeft className={Style.arrowLeft} />
-                  Go Back
-                </a>
-              </div>
-            </Col>
-          </Row>
-
-          <Row xs={9} className="flex-grow-1 p-0 m-0">
-            <Col
-              xs="auto"
-              className={clsx(
-                Style.followUs_container,
-                "d-flex flex-column justify-content-end align-items-end pe-3 m-0"
-              )}
-            >
-              <p className={clsx(Style.followUs, "pe-5 m-0")}>Follow Us On:</p>
-              <div className={clsx(Style.social_icons, "pe-2 pb-5 m-0")}>
-                <a
-                  className="p-0"
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <LuFacebook />
-                </a>
-                <a
-                  className="p-0"
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <SiInstagram />
-                </a>
-                <a
-                  className="p-0"
-                  href="https://twitter.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaXTwitter />
-                </a>
-                <a
-                  className="p-0"
-                  href="https://www.youtube.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FiYoutube />
-                </a>
-              </div>
-            </Col>
-
-            <Col
-              className={clsx(
-                Style.background_designTop,
-                "justify-content-end  align-items-end p-0 m-0"
-              )}
-            >
-              <div
-                className={clsx(Style.BarShadow, Style.BarBot, Style.orangeBot)}
-              ></div>
-              <div
-                className={clsx(Style.BarShadow, Style.BarBot, Style.blueBot)}
-              ></div>
-              <div
-                className={clsx(Style.BarShadow, Style.BarBot, Style.yellowBot)}
-              ></div>
-            </Col>
-          </Row>
+          <a>
+            This course covers everything from basic tasks like making calls and
+            sending messages to advanced features like camera and screen
+            recording.
+          </a>
+        </Col>
+        <Col
+          style={{
+            flexGrow: 1,
+            border: "2px solid blue",
+            backgroundColor: "lightcoral",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontWeight: "bold",
+          }}
+        >
+          Column 3
+        </Col>
+        <Col
+          style={{
+            flexGrow: 1,
+            border: "2px solid blue",
+            backgroundColor: "lightsalmon",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontWeight: "bold",
+          }}
+        >
+          Column 4
         </Col>
       </Row>
     </Container>

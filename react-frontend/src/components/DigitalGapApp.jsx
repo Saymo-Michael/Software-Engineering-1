@@ -4,8 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Button } from "react-bootstrap";
 import { Image } from "react-bootstrap";
+import { FaArrowRight } from "react-icons/fa";
 import { LuFacebook } from "react-icons/lu";
-import { FaArrowLeft } from "react-icons/fa";
 import { SiInstagram } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiYoutube } from "react-icons/fi";
@@ -14,28 +14,27 @@ import { useNavigate } from "react-router-dom";
 
 import clsx from "clsx";
 
-import Style from "../css modules/ConnectToPhone.module.css";
-import phone from "../Images/phoneQR.png";
+import Style from "../css modules/DigitalGapApp.module.css";
+import phone from "../Images/phoneCropped.png";
 
-const ConnectToPhone = () => {
+const DigitalGapApp = () => {
   const navigate = useNavigate();
 
-  const handleGoBackClick = () => {
-    navigate("/");
-  };
-
-  const handleContinueClick = () => {
-    navigate("/confident-assesment");
+  const handleGetStartedClick = () => {
+    navigate("/connect-to-phone");
   };
 
   return (
     <Container fluid className="d-flex flex-column min-vh-100 p-0 m-0">
       {/* Top Row: Only two squares (Square 1 and Square 2) */}
       <Row className="p-0 m-0">
+        <Col className={Style.logo_container}>
+          <div className={Style.logo}></div>
+        </Col>
         <Col
           className={clsx(
-            Style.background_designBot,
-            "justify-content-end p-0 m-0"
+            Style.background_designTop,
+            "align-items-end p-0 m-0"
           )}
         >
           <div
@@ -48,35 +47,11 @@ const ConnectToPhone = () => {
             className={clsx(Style.BarShadow, Style.BarTop, Style.yellowTop)}
           ></div>
         </Col>
-        <Col
-          className={clsx(
-            Style.logo_container,
-            "d-flex justify-content-end pe-5"
-          )}
-        >
-          <div className={Style.logo}></div>
-        </Col>
       </Row>
 
       {/* Second Grouped Row: Left nested grid and right merged square */}
       <Row className="d-flex flex-grow-1 p-0 m-0">
-        {/* Phone Grid: Nested grid */}
-        <Col
-          lg={5}
-          md={6}
-          className="d-none d-md-block align-self-end p-0 m-0 d-flex"
-        >
-          <Container
-            className={clsx(
-              Style.phone_display,
-              "d-flex justify-content-center align-items-center"
-            )}
-          >
-            <Image src={phone} fluid alt="Phone Display" className="p-0 m-0" />
-          </Container>
-        </Col>
-
-        {/* Right nested grid: Nested grid */}
+        {/* Left side: Nested grid */}
         <Col
           lg={4}
           md={6}
@@ -84,36 +59,49 @@ const ConnectToPhone = () => {
           className="d-flex flex-column flex-grow-1 p-0 m-0"
         >
           {/* Top nested row: Merged rectangle for Square 4 and 5 */}
-          <Row className="p-0 pt-4 pb-3 m-0">
-            <Col className="d-flex flex-column align-items-center">
-              <div className={Style.quote}>Connect your smartphone.</div>
-
-              <div className="d-flex flex-column align-items-end ">
-                <Button
-                  className={clsx(Style.getStarted, "mb-3")}
-                  type="button"
-                  onClick={handleContinueClick}
-                >
-                  Continue
-                </Button>
-                <a className={Style.goBack} onClick={handleGoBackClick}>
-                  <FaArrowLeft className={Style.arrowLeft} />
-                  Go Back
-                </a>
+          <Row className="p-0 pt-4 pb-5 m-0">
+            <Col className="d-flex flex-column align-items-center p">
+              <div className={Style.quote}>
+                {"\u00A0"} "Bridging the Digital Gap"
               </div>
+
+              <Button
+                className={Style.getStarted}
+                type="button"
+                onClick={handleGetStartedClick}
+              >
+                GET STARTED
+                <FaArrowRight className={Style.arrowRight} />
+              </Button>
             </Col>
           </Row>
 
           <Row xs={9} className="flex-grow-1 p-0 m-0">
             <Col
-              xs="auto"
               className={clsx(
-                Style.followUs_container,
-                "d-flex flex-column justify-content-end align-items-end pe-3 m-0"
+                Style.background_designBot,
+                "justify-content-end p-0 m-0"
               )}
             >
-              <p className={clsx(Style.followUs, "pe-5 m-0")}>Follow Us On:</p>
-              <div className={clsx(Style.social_icons, "pe-2 pb-5 m-0")}>
+              <div
+                className={clsx(Style.BarShadow, Style.BarBot, Style.orangeBot)}
+              ></div>
+              <div
+                className={clsx(Style.BarShadow, Style.BarBot, Style.blueBot)}
+              ></div>
+              <div
+                className={clsx(Style.BarShadow, Style.BarBot, Style.yellowBot)}
+              ></div>
+            </Col>
+
+            <Col
+              className={clsx(
+                Style.followUs_container,
+                "d-flex flex-column justify-content-end ps-3 m-0"
+              )}
+            >
+              <p className={clsx(Style.followUs, "p-0 m-0")}>Follow Us On:</p>
+              <div className={clsx(Style.social_icons, "ps-2 pb-5 m-0")}>
                 <a
                   className="p-0"
                   href="https://www.facebook.com/"
@@ -148,28 +136,26 @@ const ConnectToPhone = () => {
                 </a>
               </div>
             </Col>
-
-            <Col
-              className={clsx(
-                Style.background_designTop,
-                "justify-content-end align-items-end p-0 m-0"
-              )}
-            >
-              <div
-                className={clsx(Style.BarShadow, Style.BarBot, Style.orangeBot)}
-              ></div>
-              <div
-                className={clsx(Style.BarShadow, Style.BarBot, Style.blueBot)}
-              ></div>
-              <div
-                className={clsx(Style.BarShadow, Style.BarBot, Style.yellowBot)}
-              ></div>
-            </Col>
           </Row>
+        </Col>
+        {/* Right side: Merged square for Square 6/9 */}
+        <Col
+          lg={5}
+          md={6}
+          className="d-none d-md-block align-self-end p-0 m-0 d-flex"
+        >
+          <Container
+            className={clsx(
+              Style.phone_display,
+              "d-flex justify-content-center align-items-center"
+            )}
+          >
+            <Image src={phone} fluid alt="Phone Display" className="p-0 m-0" />
+          </Container>
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default ConnectToPhone;
+export default DigitalGapApp;
