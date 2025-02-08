@@ -1,0 +1,139 @@
+/* Modal Overlay */
+.carouselModalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Carousel styling */
+.carousel {
+  width: 100%;
+  max-width: 900px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Image Styling */
+.carousel .carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  max-width: 500px;
+  max-height: 400px;
+}
+
+/* Styling for the close button */
+.closeModalButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #333333;
+  color: white;
+  font-size: 20px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for close button */
+.closeModalButton:hover {
+  background-color: #555555;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus effect for close button */
+.closeModalButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(51, 51, 51, 0.4);
+}
+
+/* Active state for close button */
+.closeModalButton:active {
+  transform: scale(1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the Next and Previous buttons */
+.carouselControls {
+  position: absolute;
+  bottom: 20px;
+  width: fit-content;
+  display: flex;
+  justify-content: start;  /* Center buttons together */
+  gap: 15px;  /* Add a small gap between buttons */
+  padding: 0 20px;
+  z-index: 100;
+  margin: 0 0 0 33%;
+  background-color: black;
+}
+
+.prevButton,
+.nextButton {
+  background-color: #333333;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;  
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for Prev/Next buttons */
+.prevButton:hover,
+.nextButton:hover {
+  background-color: #555555;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Focus effect for Prev/Next buttons */
+.prevButton:focus,
+.nextButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(51, 51, 51, 0.4);
+}
+
+/* Active state for Prev/Next buttons */
+.prevButton:active,
+.nextButton:active {
+  transform: scale(1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Carousel adjustments for better accessibility */
+@media (max-width: 768px) {
+  .carousel {
+    width: 95%;
+  }
+  .carouselControls {
+    bottom: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  .prevButton,
+  .nextButton {
+    font-size: 10px;
+    margin: 0 0 0 10%;
+  }
+}
