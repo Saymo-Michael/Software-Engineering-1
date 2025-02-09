@@ -86,6 +86,7 @@
   
   button.getStarted:hover {
     background-color: rgba(0, 0, 0, 0.15);
+    border-color: black;
   }
 
   .arrowRight {
@@ -381,7 +382,7 @@
       margin: 0 0 1% 45%;
     }
     .learnMoreText_container {
-      margin: 0 0 2% 45%;
+      margin: 0 0 2% 42%;
     }
     .aboutUsText {
       font-size: 45px;

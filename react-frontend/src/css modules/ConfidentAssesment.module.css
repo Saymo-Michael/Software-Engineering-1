@@ -7,7 +7,6 @@
 
 /* logo-container */
 .logo_container {
-  z-index: 1000;
   --background-color: green;
 }
 
@@ -26,7 +25,6 @@
 }
 
 .background_designTop {
-  z-index: 999;
   display: flex;
   flex-direction: column;
   justify-items: start;
@@ -58,10 +56,24 @@
   background-color: var(--yellow);
 }
 
-/* button.getStarted */
-.getStarted {
-  width: 210px;
-  z-index: 1000;
+/* button.goBack */
+.goBack_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 50px;
+  width: auto;
+  height: 100%;
+  --background-color: pink;
+}
+
+.goBack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 0 15px;
+  width: 220px;
   font-family: "Big Shoulders Display";
   color: black;
   font-size: 30px;
@@ -71,8 +83,9 @@
   border-radius: 50px;
 }
 
-button.getStarted:hover {
+button.goBack:hover {
   background-color: rgba(0, 0, 0, 0.15);
+  border-color: black;
 }
 
 .arrowLeft {
@@ -85,7 +98,7 @@ button.getStarted:hover {
   padding: 0;
   margin: 20px 0 0 0;
   height: 1px;
-  width: 60%;
+  width: 100%;
   background-color: black;
 }
 
@@ -95,6 +108,7 @@ button.getStarted:hover {
   font-weight: 800;
   font-size: 30px;
   text-align: center;
+  --background-color: aqua;
   color: black;
 }
 
@@ -112,7 +126,6 @@ button.getStarted:hover {
 
 .emoji_button {
   width: 270px !important;
-  z-index: 1000;
   font-family: "Big Shoulders Display";
   color: white !important;
   border-color: black;
@@ -121,16 +134,20 @@ button.getStarted:hover {
 
 .emoji_button:hover {
   background-color: rgba(0, 0, 0, 0.15) !important;
+  border-color: black;
 }
 
 .emoji_button_orange {
   background-color: var(--orange) !important;
+  border-color: black;
 }
 .emoji_button_blue {
   background-color: var(--blue) !important;
+  border-color: black;
 }
 .emoji_button_yellow {
   background-color: var(--yellow) !important;
+  border-color: black;
 }
 
 .emoji_text {
@@ -142,7 +159,6 @@ button.getStarted:hover {
 
 /* background-designBot */
 .background_designBot {
-  z-index: 999;
   display: flex;
   flex-direction: column;
   --background-color: red;
@@ -177,22 +193,32 @@ button.getStarted:hover {
   .mobile_margin {
     margin-bottom: 20px;
   }
-  .logo {
-    margin: 10px 0 0 10px;
-    width: 75px;
-    height: 75px;
+  .question_top_line {
+    width: 90%;
   }
-  .getStarted {
-    width: 65px;
+  .question {
+    margin: 10px 5% 15px 5%;
+  }
+  .logo { 
+    margin: 30px 0 0 30px;
+    width: 55px;
+    height: 55px;
+  }
+  .goBack_container {
+    margin: 10px 35px 0 0; 
+    width: auto;
+    height: 100%;
+  }
+  .goBack {
+    width: 45px;
+    height: 45px;
     font-size: 0px;
     border-radius: 100%;
   }
   .arrowLeft {
-    padding: 0;
     margin: 0;
     color: black;
-    font-size: 50px;
-    padding-right: 10px;
+    font-size: 22px;
   }
   .emoji {
     width: 20%;
@@ -203,8 +229,8 @@ button.getStarted:hover {
 }
 
 @media (min-width: 370px) {
-  .question_top_line {
-    width: 92%;
+  .question {
+    font-size: 35px;
   }
 }
 
@@ -215,14 +241,15 @@ button.getStarted:hover {
 }
 
 @media (min-width: 768px) {
-  .getStarted {
-    width: 210px;
-    font-size: 30px;
+  .goBack {
+    width: 160px;
+    font-size: 20px;
     border-radius: 50px;
     margin-right: 15px;
   }
-  .backbutton_line {
-    margin-right: 15px;
+  .arrowLeft { 
+    font-size: 30px;
+    padding-right: 10px;
   }
   .BarTop {
     height: 100px;
@@ -247,15 +274,16 @@ button.getStarted:hover {
   .BarBot {
     height: 70px;
   }
-  .getStarted {
+  .goBack_container {
+    margin-right: 80px;
+  }
+  .goBack {
     width: 180px;
+    height: 60px;
     font-size: 25px;
   }
   .arrowLeft {
     font-size: 30px;
-  }
-  .backbutton_line {
-    width: 32%;
   }
   .question {
     font-size: 35px;
@@ -275,18 +303,22 @@ button.getStarted:hover {
   .BarBot {
     height: 90px;
   }
-  .getStarted {
-    margin-right: 40px;
+  .logo {
+    margin: 10px 0 0 10px;
+    width: 75px;
+    height: 75px;
+  }
+  .goBack_container {
+    margin-right: 150px;
+  }
+  .goBack {
+    margin-right: 20px;
     width: 210px;
     font-size: 30px;
     border-radius: 50px;
   }
   .arrowLeft {
     font-size: 30px;
-  }
-  .backbutton_line {
-    width: 25%;
-    margin-right: 40px;
   }
   .question {
     margin: 0px 2px 20px 2px;

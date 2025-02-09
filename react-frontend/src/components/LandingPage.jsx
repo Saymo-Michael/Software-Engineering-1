@@ -26,7 +26,11 @@ const LandingPage = () => {
   const aboutUsRef = useRef(null);
 
   const handleGetStartedClick = () => {
-    navigate("/connect-to-phone");
+    if (window.innerWidth < 768) {
+      navigate("/confident-assesment");
+    } else {
+      navigate("/connect-to-phone");
+    }
   };
 
   const handleLearnMoreClick = () => {
