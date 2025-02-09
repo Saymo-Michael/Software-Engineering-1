@@ -19,21 +19,9 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  padding: 15px;
   overflow: hidden;
   position: relative;
-}
-
-/* Image Styling */
-.carousel .carousel-item img {
-  width: 100%;
-  height: auto;
-  object-fit: fill;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
-  max-width: 500px;
-  max-height: 400px;
 }
 
 /* Styling for the close button */
@@ -43,7 +31,7 @@
   right: 20px;
   background-color: #333333;
   color: white;
-  font-size: 20px;
+  font-size: 10px;
   padding: 10px 16px;
   border-radius: 8px;
   border: none;
@@ -74,15 +62,11 @@
 
 /* Styling for the Next and Previous buttons */
 .carouselControls {
-  position: absolute;
-  bottom: 20px;
   width: fit-content;
   display: flex;
-  justify-content: start;  /* Center buttons together */
-  gap: 15px;  /* Add a small gap between buttons */
-  padding: 0 20px;
+  justify-self: center;
+  gap: 15px;
   z-index: 100;
-  margin: 0 0 0 33%;
   background-color: black;
 }
 
@@ -90,7 +74,8 @@
 .nextButton {
   background-color: #333333;
   color: white;
-  font-size: 18px;
+  font-size: 10px;
+  margin: -25% 0 0 0;
   padding: 10px 20px;
   border-radius: 5px;  
   border: none;
@@ -122,18 +107,47 @@
 }
 
 /* Carousel adjustments for better accessibility */
-@media (max-width: 768px) {
+@media (min-width: 320px) {
   .carousel {
-    width: 95%;
+    width: 90%;
   }
-  .carouselControls {
-    bottom: 10px;
-    width: 100%;
-    justify-content: center;
+}
+
+@media (min-width: 370px) {
+}
+
+@media (min-width: 425px) {
+  .carousel {
+    width: 60%;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel { 
+    width: 40%;
+  }
+  .closeModalButton {
+    font-size: 12px;
   }
   .prevButton,
   .nextButton {
-    font-size: 10px;
-    margin: 0 0 0 10%;
+    font-size: 12px;
+    padding: 12px 24px;
+    margin: -25% 0 0 0;
   }
+}
+
+@media (min-width: 1440px) {
+  .carousel {
+    width: 30%;
+  }
+}
+
+@media (min-width: 2560px) {
 }

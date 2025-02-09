@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import { LuFacebook } from "react-icons/lu";
-// import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { SiInstagram } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiYoutube } from "react-icons/fi";
@@ -20,9 +20,9 @@ import phone from "../Images/phoneQR.png";
 const ConnectToPhone = () => {
   const navigate = useNavigate();
 
-  // const handleGoBackClick = () => {
-  //   navigate("/");
-  // };
+  const handleGoBackClick = () => {
+    navigate("/");
+  };
 
   const handleContinueClick = () => {
     navigate("/confident-assesment");
@@ -54,6 +54,11 @@ const ConnectToPhone = () => {
             "d-flex justify-content-end pe-5"
           )}
         >
+          <div className={clsx(Style.goBack_container)}>  
+            <Button className={Style.goBack} type="button" onClick={handleGoBackClick}>
+                <FaArrowLeft className={Style.arrowLeft} />
+            </Button>
+          </div>
           <div className={Style.logo}></div>
         </Col>
       </Row>
@@ -96,10 +101,6 @@ const ConnectToPhone = () => {
                 >
                   Continue
                 </Button>
-                {/* <a className={Style.goBack} onClick={handleGoBackClick}>
-                  <FaArrowLeft className={Style.arrowLeft} />
-                  Go Back
-                </a> */}
               </div>
             </Col>
           </Row>

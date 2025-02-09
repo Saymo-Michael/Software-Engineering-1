@@ -8,6 +8,8 @@ import tuck from '../Images/tuck.jpg';
 import mingming from '../Images/mingming.webp';
 import linny from '../Images/linny.webp';
 
+import clsx from 'clsx';
+
 import Style from '../css modules/ImageCarouselModal.module.css';
 
 const ImageCarouselModal = ({ closeModal }) => {
@@ -31,8 +33,8 @@ const ImageCarouselModal = ({ closeModal }) => {
         <button className={Style.closeModalButton} onClick={closeModal}>X</button>
 
         <Carousel
-          selectedItem={selectedIndex}  // Controlled component
-          onChange={(index) => setSelectedIndex(index)} // Update state when carousel changes
+          selectedItem={selectedIndex} 
+          onChange={(index) => setSelectedIndex(index)} 
         >
           <div>
             <Image src={linny} className={Style.picture} />
@@ -46,7 +48,7 @@ const ImageCarouselModal = ({ closeModal }) => {
         </Carousel>
 
         {/* Navigation buttons (Next and Previous) inside the modal */}
-        <div className={Style.carouselControls}>
+        <div className={clsx(Style.carouselControls)}>
           <button className={Style.prevButton} onClick={handlePrev}>Previous</button>
           <button className={Style.nextButton} onClick={handleNext}>Next</button>
         </div>

@@ -5,10 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import { FaArrowLeft } from "react-icons/fa";
-import { LuFacebook } from "react-icons/lu";
-import { SiInstagram } from "react-icons/si";
-import { FaXTwitter } from "react-icons/fa6";
-import { FiYoutube } from "react-icons/fi";
 
 import { useNavigate } from "react-router-dom";
 
@@ -26,17 +22,17 @@ const DigitalGapApp = () => {
     navigate("/connect-to-phone");
   };
 
-  const handleOrangeClick = () => {
-    navigate("/");
-  };
+  // const handleOrangeClick = () => {
+  //   navigate("/");
+  // };
 
-  const handleBlueClick = () => {
-    navigate("/");
-  };
+  // const handleBlueClick = () => {
+  //   navigate("/");
+  // };
 
-  const handleYellowClick = () => {
-    navigate("/");
-  };
+  // const handleYellowClick = () => {
+  //   navigate("/");
+  // };
 
   return (
     <Container fluid className="d-flex flex-column min-vh-100 p-0 m-0">
@@ -63,25 +59,27 @@ const DigitalGapApp = () => {
           ></div>
         </Col>
         <Col
-          className="d-flex flex-column justify-content-center align-items-end p-0 m-0 me-2"
+          className="d-flex flex-column justify-content-center align-items-end p-0 m-0"
           style={{ backgroundColor: "" }}
         >
-          <Button
-            className={Style.getStarted}
-            type="button"
-            onClick={handleGoBackClick}
-          >
-            <FaArrowLeft className={Style.arrowLeft} />
-            GO BACK
-          </Button>
-          {/* Line - Hide on md and smaller */}
-          <div className={`${Style.backbutton_line} d-none d-md-block`}></div>
+          <div className={Style.goBack_container}>
+            <Button
+              className={Style.goBack}
+              type="button"
+              onClick={handleGoBackClick}
+            >
+              <FaArrowLeft className={Style.arrowLeft} />
+              GO BACK
+            </Button>
+            {/* Line - Hide on md and smaller */}
+            <div className={`${Style.backbutton_line} d-none d-md-block`}></div>
+          </div>
         </Col>
       </Row>
 
       <Row className="p-0 m-0" style={{ backgroundColor: "" }}>
         <div
-          className={`${Style.question_top_line} d-block d-md-none p-0 m-0 mt-2 ms-3`}
+          className={`${Style.question_top_line} d-block d-md-none justify-content-center p-0 m-0 mt-2 ms-3`}
         ></div>
         <Col
           className={clsx(
@@ -97,7 +95,7 @@ const DigitalGapApp = () => {
 
       <Row
         xs="auto"
-        className="d-flex align-items-start p-0 m-0 mb"
+        className="d-flex align-items-center p-0 m-0 mb"
         style={{ backgroundColor: "" }}
       >
         <Col
