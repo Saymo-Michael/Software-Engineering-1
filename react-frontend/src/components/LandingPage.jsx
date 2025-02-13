@@ -12,9 +12,9 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FiYoutube } from "react-icons/fi";
 
 import phone from "../Images/phone.JPG";
-import linny from "../Images/linny.webp";
-import tuck from "../Images/tuck.jpg";
-import mingming from "../Images/mingming.webp";
+import linny from "../Images/dev1.png";
+import mingming from "../Images/dev2.jpg";
+import tuck from "../Images/dev3.jpg";
 
 import clsx from "clsx";
 

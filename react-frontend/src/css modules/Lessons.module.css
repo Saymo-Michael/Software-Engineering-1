@@ -1,256 +1,406 @@
 /* background-designTop */
 :root {
-    --orange: #f78c6b;
-    --blue: #4ac0c0;
-    --yellow: #ffd166;
-  }
-  
-  /* logo-container */
-  .logo_container {
-    z-index: 1000;
-    --background-color: green;
-  }
-  
+  --orange: #f78c6b;
+  --blue: #4ac0c0;
+  --yellow: #ffd166;
+}
+
+/* logo-container */
+.logo_container {
+  z-index: 1000;
+  --background-color: green;
+}
+
+.logo {
+  margin: 30px 0 0 20px;
+  width: 70px;
+  height: 70px;
+  background-image: url(../Images/logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  --background-color: blue;
+}
+
+.BarShadow {
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.background_designTop {
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+  --background-color: red;
+}
+
+.BarTop {
+  height: 120px;
+  border-radius: 0px 50px 50px 0px;
+}
+
+.orangeTop {
+  width: 25%;
+  margin-bottom: -30px;
+  z-index: 3;
+  background-color: var(--orange);
+}
+
+.blueTop {
+  width: 20%;
+  margin-bottom: -40px;
+  z-index: 2;
+  background-color: var(--blue);
+}
+
+.yellowTop {
+  width: 15%;
+  z-index: 1;
+  background-color: var(--yellow);
+}
+
+/* button.getStarted */
+.getStarted {
+  width: 210px;
+  z-index: 1000;
+  font-family: "Big Shoulders Display";
+  color: black;
+  font-size: 30px;
+  font-weight: 700;
+  border-color: black;
+  background-color: transparent;
+  border-radius: 50px;
+}
+
+button.getStarted:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.arrowLeft {
+  color: black;
+  margin: 0 0 5px 10px;
+  font-size: 30px;
+}
+
+.backbutton_line {
+  padding: 0;
+  margin: 20px 0 0 0;
+  height: 1px;
+  width: 60%;
+  background-color: black;
+}
+
+.question {
+  margin: 20px 2px 2px 2px;
+  font-family: "Big Shoulders Display";
+  font-weight: 800;
+  font-size: 30px;
+  text-align: center;
+  color: black;
+}
+
+.question_top_line {
+  height: 1px;
+  width: 90%;
+  background-color: black;
+}
+
+/* emoji */
+
+.emoji {
+  width: 30%;
+}
+
+.emoji_button {
+  width: 270px !important;
+  z-index: 1000;
+  font-family: "Big Shoulders Display";
+  color: white !important;
+  border-color: black;
+  border-radius: 20px;
+}
+
+.emoji_button:hover {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.emoji_button_orange {
+  background-color: var(--orange) !important;
+}
+.emoji_button_blue {
+  background-color: var(--blue) !important;
+}
+.emoji_button_yellow {
+  background-color: var(--yellow) !important;
+}
+
+.emoji_text {
+  font-family: "Big Shoulders Display";
+  font-size: 30px;
+  font-weight: 600;
+  white-space: pre-line;
+}
+
+/* background-designBot */
+.background_designBot {
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  --background-color: red;
+}
+
+.BarBot {
+  height: 120px;
+  border-radius: 50px 0px 0px 50px;
+}
+
+.orangeBot {
+  width: 30%;
+  margin-bottom: -30px;
+  z-index: 3;
+  background-color: var(--orange);
+}
+
+.blueBot {
+  width: 35%;
+  margin-bottom: -40px;
+  z-index: 2;
+  background-color: var(--blue);
+}
+
+.yellowBot {
+  width: 25%;
+  z-index: 1;
+  background-color: var(--yellow);
+}
+
+/*customm*/
+.lesson_container {
+  max-height: 80vh;
+  overflow-y: auto; /* Scroll when content overflows */
+  --background-color: navy; /* Keep the navy background */
+}
+
+.lessonCard {
+  border: 2px solid black;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  padding: 10px;
+  flex: 1 0 auto; /* Allow cards to grow/shrink properly */
+}
+
+.lessonTitle {
+  font-family: "Big Shoulders Text", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.startButton {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+}
+
+.lockedButton {
+  width: 100%;
+  background-color: grey;
+  color: white;
+}
+
+.textCol {
+  background-color: orange;
+  padding: 20px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lessonText {
+  font-family: "Big Shoulders Display", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.imageContainer {
+  background-color: violet;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.carouselImage {
+  width: 100%;
+}
+
+.mobile_scrolling {
+  overflow: hidden !important;
+}
+@media (min-width: 320px) {
   .logo {
-    margin: 30px 0 0 20px;
-    width: 70px;
-    height: 70px;
-    background-image: url(../Images/logo.png);
-    background-repeat: no-repeat;
-    background-size: contain;
+    margin: 10px 0 0 10px;
+    width: 75px;
+    height: 75px;
   }
-  
-  .BarShadow {
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  .getStarted {
+    width: 65px;
+    font-size: 0px;
+    border-radius: 100%;
   }
-  
-  /* background-designTop */
-  .background_designTop {
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    --background-color: red;
-  }
-  
-  .BarTop {
-    height: 90px;
-    border-radius: 0 50px 50px 0;
-  }
-  
-  .orangeTop {
-    width: 40%;
-    margin-bottom: -30px;
-    z-index: 3;
-    background-color: var(--orange);
-  }
-  
-  .blueTop {
-    width: 50%;
-    margin-bottom: -40px;
-    z-index: 2;
-    background-color: var(--blue);
-  }
-  
-  .yellowTop {
-    width: 30%;
-    z-index: 1;
-    background-color: var(--yellow);
-  }
-  
-  /* quote */
-  .quote {
-    z-index: 1000;
-    word-wrap: break-word;
-    margin: 0 0 20px 0;
-    font-family: "Big Shoulders Display";
-    font-size: 50px;
-    text-align: center;
-    line-height: 1.2;
-    font-weight: 500;
-    --background-color: violet;
-  }
-  
-  /* button.getStarted */
-  Button.getStarted {
-    width: 210px;
-    z-index: 1000;
-    font-family: "Big Shoulders Display";
+  .arrowLeft {
+    padding: 0;
+    margin: 0;
     color: black;
+    font-size: 50px;
+    padding-right: 10px;
+  }
+  .emoji {
+    width: 20%;
+  }
+  .emoji_button {
+    width: 200px;
+  }
+}
+
+@media (min-width: 370px) {
+  .question_top_line {
+    width: 92%;
+  }
+}
+
+@media (min-width: 425px) {
+}
+
+@media (min-width: 768px) {
+  .logo {
+    margin: 10px 0 0 10px;
+    width: 60px;
+    height: 60px;
+  }
+  .getStarted {
+    width: 210px;
     font-size: 30px;
-    font-weight: 700;
-    border-color: black;
-    background-color: transparent;
+    border-radius: 50px;
+    margin-right: 15px;
+  }
+  .backbutton_line {
+    margin-right: 15px;
+  }
+  .BarTop {
+    height: 100px;
+  }
+  .BarBot {
+    height: 100px;
+  }
+  .emoji_button {
+    width: 230px !important;
+    color: white !important;
+  }
+  .question {
+    margin: 0px 2px 20px 2px;
+    font-size: 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .BarTop {
+    height: 70px;
+  }
+  .BarBot {
+    height: 70px;
+  }
+  .getStarted {
+    width: 180px;
+    font-size: 25px;
+  }
+  .arrowLeft {
+    font-size: 30px;
+  }
+  .backbutton_line {
+    width: 32%;
+  }
+  .question {
+    font-size: 35px;
+  }
+  .emoji_text {
+    font-size: 25px;
+  }
+  .emoji_button {
+    width: 300px !important;
+  }
+  .lesson_container {
+    max-height: 77vh;
+  }
+}
+
+@media (min-width: 1440px) {
+  .BarTop {
+    height: 88px;
+  }
+  .BarBot {
+    height: 88px;
+  }
+  .getStarted {
+    margin-right: 40px;
+    width: 210px;
+    font-size: 30px;
     border-radius: 50px;
   }
-  
-  button.getStarted:hover {
-    background-color: rgba(0, 0, 0, 0.15);
-  }
-  
   .arrowLeft {
-    color: black;
-    margin: 0 5px 5px 0;
-    font-size: 20px;
-  }
-  
-  /* a.goBack */
-  .goBack {
-    text-decoration: none;
-    z-index: 1000;
-    color: black;
-    font-family: "Big Shoulders Display";
     font-size: 30px;
-    font-weight: 500;
   }
-  
-  /* background-designBot */
-  .background_designBot {
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    justify-items: end;
-    --background-color: red;
+  .backbutton_line {
+    width: 25%;
+    margin-right: 40px;
   }
-  
-  .BarBot {
-    height: 120px;
-    border-radius: 50px 0 0 50px;
+  .question {
+    margin: 0px 2px 20px 2px;
+    font-size: 50px;
   }
-  
-  .orangeBot {
-    width: 90%;
-    margin-bottom: -30px;
-    z-index: 3;
-    background-color: var(--orange);
+  .emoji_text {
+    font-size: 35px;
   }
-  
-  .blueBot {
-    width: 95%;
-    margin-bottom: -40px;
-    z-index: 2;
-    background-color: var(--blue);
+  .emoji_button {
+    width: 300px !important;
   }
-  
-  .yellowBot {
-    width: 100%;
-    z-index: 1;
-    background-color: var(--yellow);
+  .lesson_container {
+    max-height: 80vh;
   }
-  
-  .followUs_container {
-    margin-right: -30px;
-    --background-color: brown;
-  }
-  
-  .followUs {
-    z-index: 1000;
-    font-family: "Big Shoulders Display";
-    font-size: 25px;
-    font-weight: 700;
-  }
-  
-  .social_icons {
-    z-index: 1000;
-    display: flex;
-    --background-color: red;
-  }
-  
-  .social_icons a {
-    color: black;
-    margin: 0 4px 0 4px;
-    font-size: 30px;
-    --background-color: white;
-  }
-  
-  .phone_display {
-    width: 70%;
-    --background-color: black;
-  }
-  
-  .container {
-    --background-color: black;
-  }
-  
-  @media (min-width: 320px) {
-    .logo {
-      width: 50px;
-      height: 50px;
-    }
-  
-    .BarTop {
-      height: 90px;
-    }
-    .BarBot {
-      height: 90px;
-    }
-  }
-  
-  @media (min-width: 370px) {
-    .logo {
-      width: 70px;
-      height: 70px;
-    }
-  
-    .BarTop {
-      height: 110px;
-    }
-    .BarBot {
-      height: 110px;
-    }
-  }
-  
-  @media (min-width: 425px) {
-    .BarTop {
-      height: 120px;
-    }
-    .BarBot {
-      height: 120px;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .quote {
-      margin: 0 0 20px 0;
-      font-size: 55px;
-      font-weight: 900;
-    }
-    .phone_display {
-      width: 105%;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .quote {
-      font-size: 60px;
-      font-weight: 900;
-    }
-    .phone_display {
-      width: 70%;
-    }
-    .BarTop {
-      height: 85px;
-    }
-    .BarBot {
-      height: 85px;
-    }
-  }
-  
-  @media (min-width: 1440px) {
-    .quote {
-      font-size: 65px;
-      font-weight: 900;
-    }
-    .phone_display {
-      width: 100%;
-    }
-    .BarTop {
-      height: 120px;
-    }
-    .BarBot {
-      height: 120px;
-    }
-  }
-  
-  @media (min-width: 2560px) {
-  }
-  
+}
+
+@media (min-width: 2560px) {
+}
+
+/* Smooth transitions */
+.carousel {
+  overflow: hidden;
+}
+
+.carousel-item {
+  transition: transform 0.6s ease-in-out !important;
+  display: flex !important;
+  align-items: center;
+}
+
+/* Hide inactive slides */
+.carousel-item:not(.active) {
+  position: absolute;
+  display: block !important;
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Active slide positioning */
+.carousel-item.active {
+  position: relative;
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Next/prev slide positioning */
+.carousel-item-next:not(.carousel-item-start),
+.carousel-item-prev:not(.carousel-item-end) {
+  transform: translateX(0);
+  opacity: 0;
+  visibility: hidden;
+}

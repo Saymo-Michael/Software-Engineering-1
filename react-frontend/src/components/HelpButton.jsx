@@ -12,7 +12,15 @@ const HelpButton = ({ openModal }) => {
       case "/connect-to-phone":
         return { bottom: "30px", left: "30px" };
       case "/confident-assesment":
-        return { bottom: "50px", right: "30px" };
+        // return { bottom: "50px", right: "30px" };
+        
+        if (window.innerWidth < 768) {
+          return { bottom: "50px", right: "30px" };
+        } else if (window.innerWidth < 1028) {
+          return { bottom: "50px", right: "180px" };
+        } else {
+          return { bottom: "50px", right: "250px" };
+        }
       case "/lessons":
         return { bottom: "20px", right: "20px" };
       default:

@@ -1,38 +1,163 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import { Button } from "react-bootstrap";
-import { Image } from "react-bootstrap";
-import { LuFacebook } from "react-icons/lu";
-import { FaArrowLeft } from "react-icons/fa";
-import { SiInstagram } from "react-icons/si";
-import { FaXTwitter } from "react-icons/fa6";
-import { FiYoutube } from "react-icons/fi";
-
+import { FaArrowLeft, FaLock, FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
 import clsx from "clsx";
+import Style from "../css modules/Lessons.module.css";
+import backhandIndexPointingLeft from "../Images/Emoji/backhand-index-pointing-left.png";
+import { Image } from "react-bootstrap";
+// Existing placeholders
+import onOff1 from "../Images/Lesson1/Topic1/Step1.png";
+import onOff2 from "../Images/Lesson1/Topic1/Step2.png";
+import onOff3 from "../Images/Lesson1/Topic1/Step3.png";
+import onOff4 from "../Images/Lesson1/Topic1/Step4.png";
 
-import Style from "../css modules/ConnectToPhone.module.css";
-import phone from "../Images/phoneQR.png";
+
+import powerSave1 from "../Images/Lesson1/Topic2/Step1.JPG";
+import powerSave2 from "../Images/Lesson1/Topic2/Step2.JPG";
+import powerSave3 from "../Images/Lesson1/Topic2/Step3.JPG";
+import powerSave4 from "../Images/Lesson1/Topic2/Step4.JPG";
+import powerSave5 from "../Images/Lesson1/Topic2/Step5.JPG";
+import powerSave6 from "../Images/Lesson1/Topic2/Step6.JPG";
+
+// const homescreen1 = "https://via.placeholder.com/400x300.png?text=Step+1";
+
+// New placeholders for other lessons
+const dialerStep =
+  "https://via.placeholder.com/400x300.png?text=Lesson2-Calls-Step1";
+const messagesStep1 =
+  "https://via.placeholder.com/400x300.png?text=Lesson2-Texts-Step1";
+const messagesStep2 =
+  "https://via.placeholder.com/400x300.png?text=Lesson2-Texts-Step2";
+const wallpaperStep1 =
+  "https://via.placeholder.com/400x300.png?text=Lesson3-Wallpaper-Step1";
+const wallpaperStep2 =
+  "https://via.placeholder.com/400x300.png?text=Lesson3-Wallpaper-Step2";
+const ringtoneStep1 =
+  "https://via.placeholder.com/400x300.png?text=Lesson3-Ringtones-Step1";
+const ringtoneStep2 =
+  "https://via.placeholder.com/400x300.png?text=Lesson3-Ringtones-Step2";
 
 const Lessons = () => {
   const navigate = useNavigate();
 
-  const handleGoBackClick = () => {
-    navigate("/");
+  const [index, setIndex] = useState(0);
+  const [selectedLesson, setSelectedLesson] = useState(null);
+  const [selectedTopic, setSelectedTopic] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleSelect = (selectedIndex, e) => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setIndex(selectedIndex);
+
+      // Match animation duration with CSS transition
+      setTimeout(() => setIsAnimating(false), 600);
+    }
   };
+
+  function handleGoBackClick() {
+    if (selectedLesson) {
+      setSelectedLesson(null); // Go back to lesson list
+      setSelectedTopic(null); // Go back to lesson list
+    } else {
+      navigate("/confident-assesment"); // Go back to the previous page
+    }
+  }
+
+  // 1. Create helper functions for lesson structure
+  const createStep = (image, text) => ({ image, text });
+  const createTopic = (title, steps) => ({ title, steps });
+  const createLesson = (id, title, topics, locked = true) => ({
+    id,
+    title,
+    locked,
+    topics,
+  });
+
+  // 2. Define reusable steps (if any steps repeat across topics)
+  const commonSteps = {
+    basicAction: (stepNumber, action) =>
+      createStep(`Follow these instructions to ${action} your device`),
+  };
+
+  // 3. Build your lessons
+  const lessons = [
+    createLesson(
+      1,
+      "Getting Started with Your Smartphone",
+      [
+        createTopic("Turning phone on/off", [
+          createStep(
+            onOff1,
+            "To turn your phone ON, press and hold the PWR/LOCK key until the screen lights up."
+          ),
+          createStep(
+            onOff2,
+            "To turn your phone OFF, press and hold the PWR/LOCK key until you see the options menu."
+          ),
+          createStep(onOff3, "Tap 'Power off.'"),
+          createStep(onOff4, "Congratulations, you've finished this tutorial."),
+        ]),
+        createTopic("Turn Power Save Mode On/Off", [
+          createStep(powerSave1, "From the main screen, slide the screen up to display your apps."),
+          createStep(powerSave2, "Locate and tap the 'Settings' icon."),
+          createStep(powerSave3, "Locate and tap 'Smart Manager.' Then, tap 'Battery'"),
+          createStep(powerSave4, (
+            <>
+              Tap the slider next to 'Normal saving mode.' If necessary, tap 'Normal saving mode' to change when your power save mode turns on.
+              <br />
+              <br />
+              Note: You can also tap 'Super saving mode' to extend your battery life even more.
+            </>
+          )),
+          
+          createStep(powerSave5, "To return to the main screen, tap the HOME key."),
+          createStep(powerSave6, "Congratulations, you've finished this tutorial.")
+          
+        ]),
+      ],
+      false // First lesson unlocked
+    ),
+    createLesson(2, "Essential Functions", [
+      createTopic("Making Calls", [
+        commonSteps.basicAction(1, "open dialer"),
+        createStep(dialerStep, "Enter number and press call"),
+      ]),
+      createTopic("Sending Texts", [
+        createStep(messagesStep1, "Open messaging app"),
+        createStep(messagesStep2, "Compose new message"),
+      ]),
+    ]),
+    createLesson(3, "Personalization", [
+      createTopic("Wallpaper", [
+        createStep(wallpaperStep1, "Open settings"),
+        createStep(wallpaperStep2, "Choose wallpaper"),
+      ]),
+      createTopic("Ringtones", [
+        createStep(ringtoneStep1, "Sound settings"),
+        createStep(ringtoneStep2, "Select tone"),
+      ]),
+    ]),
+  ];
+  const lessonColors = [
+    "rgba(247, 140, 107, 1)",
+    "rgba(164, 192, 192, 1)",
+    "rgba(255, 209, 102, 1)",
+  ];
 
   return (
     <Container fluid className="d-flex flex-column min-vh-100 p-0 m-0">
-      {/* Top Row: Only two squares (Square 1 and Square 2) */}
-      <Row className="p-0 m-0">
+      {/* Top Row: Header Section (Unchanged) */}
+      <Row className="p-0 m-0" style={{ backgroundColor: "" }}>
+        {/* Top Row Design */}
         <Col
           className={clsx(
-            Style.background_designBot,
-            "justify-content-end p-0 m-0"
+            Style.background_designTop,
+            "d-none d-md-block p-0 m-0 flex-grow-1"
           )}
+          style={{ backgroundColor: "" }}
         >
           <div
             className={clsx(Style.BarShadow, Style.BarTop, Style.orangeTop)}
@@ -44,127 +169,324 @@ const Lessons = () => {
             className={clsx(Style.BarShadow, Style.BarTop, Style.yellowTop)}
           ></div>
         </Col>
-        <Col
-          className={clsx(
-            Style.logo_container,
-            "d-flex justify-content-end pe-5"
-          )}
-        >
+        <Col className={clsx(Style.logo_container, "d-sm-none p-0 m-0")}>
           <div className={Style.logo}></div>
+        </Col>
+
+        {/* Back Button */}
+        <Col
+          className="d-flex flex-column justify-content-center align-items-end p-0 m-0"
+          style={{ backgroundColor: "" }}
+        >
+          <Button
+            className={Style.getStarted}
+            type="button"
+            onClick={() => handleGoBackClick()}
+          >
+            <FaArrowLeft className={Style.arrowLeft} /> GO BACK
+          </Button>
+          <div className={`${Style.backbutton_line} d-none d-md-block`}></div>
         </Col>
       </Row>
 
-      {/* Second Grouped Row: Left nested grid and right merged square */}
-      <Row className="d-flex flex-grow-1 p-0 m-0">
-        {/* Phone Grid: Nested grid */}
+      {/* Middle Section */}
+      <Row className={clsx(Style.mobile_margin, "d-flex flex-grow-1 p-0 m-0")}>
+        {/* Logo (Unchanged) */}
         <Col
-          lg={5}
-          md={6}
-          className="d-none d-md-block align-self-end p-0 m-0 d-flex"
+          md={1}
+          lg={1}
+          className="d-flex flex-column d-none d-lg-block justify-content-between align-self-end p-0 m-0"
+          style={{ backgroundColor: "" }}
         >
-          <Container
-            className={clsx(
-              Style.phone_display,
-              "d-flex justify-content-center align-items-center"
-            )}
-          >
-            <Image src={phone} fluid alt="Phone Display" className="p-0 m-0" />
-          </Container>
+          <div className={clsx(Style.logo, "p-0 m-0 mb-2 ms-2")}></div>
         </Col>
 
-        {/* Right nested grid: Nested grid */}
+        {/* Select Topics (Cleaned) */}
+        {selectedLesson ? (
+          /* Specific Topics View */
+          <Col
+            md={4}
+            lg={3}
+            xs={12}
+            className={clsx(
+              Style.lesson_container,
+              "p-3 m-0 d-flex flex-column align-self-start",
+              {
+                "d-none": selectedTopic,
+                "d-md-flex": selectedTopic,
+              }
+            )}
+          >
+            <div
+              className={`${Style.question_top_line} d-md-none d-inline p-0 m-0`}
+            ></div>
+            <h2 className={Style.lessonTitle}>{selectedLesson.title}</h2>
+            {selectedLesson.topics.map((topic, index) => (
+              <Card key={index} className={`${Style.topicCard} p-0 mt-3`}>
+                <Card.Body>
+                  <Button
+                    className={`${Style.topicButton} w-100 p-2 m-0`}
+                    variant="light"
+                    onClick={() => {
+                      setSelectedTopic(topic);
+                      setIndex(0); // Reset step index when selecting new topic
+                    }}
+                  >
+                    {topic.title} {/* Render just the title string */}
+                  </Button>
+                </Card.Body>
+              </Card>
+            ))}
+          </Col>
+        ) : (
+          /* Main Lessons View  */
+          <Col
+            md={4}
+            lg={3}
+            xs={12}
+            className={`${Style.lesson_container} p-3 m-0 d-flex flex-column align-self-start`}
+          >
+            {lessons.map((lesson, index) => (
+              <Card
+                key={lesson.id}
+                className={`${Style.lessonCard} ${
+                  lesson.locked ? Style.locked : ""
+                }`}
+              >
+                <Card.Body
+                  style={{ backgroundColor: "transparent", textAlign: "start" }}
+                >
+                  <h4
+                    className={Style.lessonTitle}
+                    style={{ color: lessonColors[index % lessonColors.length] }}
+                  >
+                    LESSON {lesson.id}
+                  </h4>
+                  <p>{lesson.title}</p>
+                  {lesson.locked ? (
+                    <Button className={Style.lockedButton} disabled>
+                      <FaLock />
+                    </Button>
+                  ) : (
+                    <Button
+                      className={Style.startButton}
+                      onClick={() => setSelectedLesson(lesson)}
+                    >
+                      <FaPlay /> Start
+                    </Button>
+                  )}
+                </Card.Body>
+              </Card>
+            ))}
+          </Col>
+        )}
+
+        {/* Tutorial Images With Specific Images*/}
         <Col
+          md={3}
           lg={4}
-          md={6}
-          xs={12}
-          className="d-flex flex-column flex-grow-1 p-0 m-0"
+          className={clsx(
+            Style.emoji_container,
+            "d-md-flex flex-column justify-content-start p-0 m-0",
+
+            {
+              "d-none": !selectedTopic,
+              "d-flex": selectedTopic,
+            },
+          )}
+          style={{
+            backgroundColor: "",
+            padding: "10px",
+            minHeight: "60vh",
+          }}
         >
-          {/* Top nested row: Merged rectangle for Square 4 and 5 */}
-          <Row className="p-0 pt-4 pb-3 m-0">
-            <Col className="d-flex flex-column align-items-center">
-              <div className={Style.quote}>Connect your smartphone.</div>
+          {selectedTopic && (
+            <Carousel
+              activeIndex={index}
+              onSelect={handleSelect}
+              controls={false}
+              indicators={false}
+              interval={null}
+              touch={false} // Disable swipe if not needed
+              className="d-flex justify-content-center h-100 w-100"
+            >
+              {selectedTopic?.steps?.map((step, idx) => (
+                <Carousel.Item key={idx} className="h-100">
+                  <div className="d-flex h-100 w-100 justify-content-center align-items-center">
+                    <img
+                      src={step.image}
+                      alt={`Step ${idx + 1}`}
+                      className="img-fluid"
+                      style={{
+                        maxHeight: "75vh",
+                        width: "auto",
+                        maxWidth: "100%",
+                        objectFit: "contain",
+                        borderRadius: "8px",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                      }}
+                    />
+                  </div>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          )}
+        </Col>
 
-              <div className="d-flex flex-column align-items-end ">
+        {/* Text Section Main View*/}
+        <Col
+          md={3}
+          lg={3}
+          className={clsx(
+            Style.emoji_container,
+            {
+              "d-none": !selectedTopic,
+              "d-flex": selectedTopic,
+            },
+            "d-md-flex",
+            "d-flex",
+            "flex-column",
+            "justify-content-between",
+            "p-0",
+            "m-0"
+          )}
+          style={{
+            backgroundColor: "",
+            padding: "20px",
+            minHeight: "200px",
+            textAlign: "center",
+            overflow: "hidden", // Add overflow control
+          }}
+        >
+          {/* Default View if No Lesson Selected */}
+          {!selectedLesson ? (
+            <div
+              className="d-flex justify-content-center align-items-center pt-5"
+              style={{ backgroundColor: "" }}
+            >
+              {/* <Image
+                src={backhandIndexPointingLeft}
+                alt="Lesson Icon"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  marginBottom: "15px",
+                }}
+              /> */}
+              <p
+                style={{
+                  fontFamily: "Big Shoulders Display",
+                  fontSize: "35px",
+                  fontWeight: "700",
+                  margin: 0,
+                  paddingLeft: "5px",
+                }}
+              >
+                Select a lesson to start
+              </p>
+            </div>
+          ) : (
+            <>
+              {/* Step Counter and Progress Bar */}
+              {selectedTopic && (
+                <div className="text-center mb-3 w-100">
+                  <div
+                    className="mb-2"
+                    style={{
+                      fontFamily: "Big Shoulders Display",
+                      fontSize: "clamp(1rem, 2vw, 1.2rem)", // Responsive font
+                      color: "#666",
+                    }}
+                  >
+                    Step {index + 1} of {selectedTopic?.steps?.length}
+                  </div>
+                  <Row className="justify-content-center g-2">
+                    {selectedTopic?.steps?.map((_, i) => (
+                      <Col xs="auto" key={i}>
+                        <div
+                          style={{
+                            width: "30px",
+                            height: "5px",
+                            borderRadius: "4px",
+                            backgroundColor: i <= index ? "#007bff" : "#dee2e6",
+                            minWidth: "30px",
+                          }}
+                        />
+                      </Col>
+                    ))}
+                  </Row>
+                </div>
+              )}
+
+              {/* Dynamic Step Text Section */}
+              <p
+                className={clsx({
+                  "d-none": !selectedTopic,
+                  "d-flex flex-column align-items-center": selectedTopic,
+                })}
+                style={{
+                  fontFamily: "Big Shoulders Display",
+                  fontSize: "30px",
+                  fontWeight: "700",
+                  marginBottom: "10px",
+                  wordBreak: "break-word",
+                  padding: "0 10px",
+                }}
+              >
+                {selectedTopic?.steps[index]?.text}
+              </p>
+
+              {/* Navigation Buttons */}
+              <div
+                className={clsx("justify-content-between w-100 mt-3 p-4 m-0", {
+                  "d-none": !selectedTopic,
+                  "d-flex": selectedTopic,
+                })}
+              >
                 <Button
-                  className={clsx(Style.getStarted, "mb-3")}
-                  type="button"
+                  variant="secondary"
+                  onClick={() => !isAnimating && handleSelect(index - 1)}
+                  disabled={index === 0 || isAnimating}
                 >
-                  Continue
+                  Previous
                 </Button>
-                <a className={Style.goBack} onClick={handleGoBackClick}>
-                  <FaArrowLeft className={Style.arrowLeft} />
-                  Go Back
-                </a>
+                <Button
+                  variant="primary"
+                  onClick={() => !isAnimating && handleSelect(index + 1)}
+                  disabled={
+                    index === (selectedTopic?.steps?.length || 0) - 1 ||
+                    isAnimating
+                  }
+                >
+                  Next
+                </Button>
               </div>
-            </Col>
-          </Row>
+            </>
+          )}
+        </Col>
 
-          <Row xs={9} className="flex-grow-1 p-0 m-0">
-            <Col
-              xs="auto"
-              className={clsx(
-                Style.followUs_container,
-                "d-flex flex-column justify-content-end align-items-end pe-3 m-0"
-              )}
-            >
-              <p className={clsx(Style.followUs, "pe-5 m-0")}>Follow Us On:</p>
-              <div className={clsx(Style.social_icons, "pe-2 pb-5 m-0")}>
-                <a
-                  className="p-0"
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <LuFacebook />
-                </a>
-                <a
-                  className="p-0"
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <SiInstagram />
-                </a>
-                <a
-                  className="p-0"
-                  href="https://twitter.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaXTwitter />
-                </a>
-                <a
-                  className="p-0"
-                  href="https://www.youtube.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FiYoutube />
-                </a>
-              </div>
-            </Col>
-
-            <Col
-              className={clsx(
-                Style.background_designTop,
-                "justify-content-end  align-items-end p-0 m-0"
-              )}
-            >
-              <div
-                className={clsx(Style.BarShadow, Style.BarBot, Style.orangeBot)}
-              ></div>
-              <div
-                className={clsx(Style.BarShadow, Style.BarBot, Style.blueBot)}
-              ></div>
-              <div
-                className={clsx(Style.BarShadow, Style.BarBot, Style.yellowBot)}
-              ></div>
-            </Col>
-          </Row>
+        {/* Second Row (Bottom Section) */}
+        <Col
+          md={2}
+          lg={1}
+          className={clsx(
+            Style.background_designBot,
+            "d-none d-md-flex justify-content-end align-items-end p-0 m-0"
+          )}
+          style={{ backgroundColor: "" }}
+        >
+          <div
+            className={clsx(Style.BarShadow, Style.BarBot, Style.orangeBot)}
+          ></div>
+          <div
+            className={clsx(Style.BarShadow, Style.BarBot, Style.blueBot)}
+          ></div>
+          <div
+            className={clsx(Style.BarShadow, Style.BarBot, Style.yellowBot)}
+          ></div>
         </Col>
       </Row>
     </Container>
   );
 };
-
 export default Lessons;
