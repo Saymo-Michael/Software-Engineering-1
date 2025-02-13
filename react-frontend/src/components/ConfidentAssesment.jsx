@@ -19,12 +19,16 @@ const DigitalGapApp = () => {
   const navigate = useNavigate();
 
   const handleGoBackClick = () => {
-    navigate("/connect-to-phone");
+    if (window.innerWidth < 768) {
+      navigate("/");
+    } else {
+      navigate("/connect-to-phone");
+    }
   };
 
-  // const handleOrangeClick = () => {
-  //   navigate("/");
-  // };
+   const handleOrangeClick = () => {
+     navigate("/lessons");
+   };
 
   // const handleBlueClick = () => {
   //   navigate("/");
@@ -124,6 +128,7 @@ const DigitalGapApp = () => {
               Style.emoji_button_orange,
               "mt-3"
             )}
+            onClick={() => handleOrangeClick()}
           >
             {`I struggle with
              most task`}
