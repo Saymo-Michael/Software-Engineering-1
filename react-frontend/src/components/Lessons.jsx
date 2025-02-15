@@ -5,7 +5,6 @@ import { FaArrowLeft, FaLock, FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import Style from "../css modules/Lessons.module.css";
-import backhandIndexPointingLeft from "../Images/Emoji/backhand-index-pointing-left.png";
 
 // Images for Lessons
 import onOff1 from "../Images/Lesson1/Topic1/Step1.gif";
@@ -189,14 +188,18 @@ const Lessons = () => {
           className="d-flex flex-column justify-content-center align-items-end p-0 m-0"
           style={{ backgroundColor: "" }}
         >
-          <Button
-            className={Style.getStarted}
-            type="button"
-            onClick={() => handleGoBackClick()}
-          >
-            <FaArrowLeft className={Style.arrowLeft} /> GO BACK
-          </Button>
-          <div className={`${Style.backbutton_line} d-none d-md-block`}></div>
+          <div className={Style.goBack_container}>
+            <Button
+              className={Style.goBack}
+              type="button"
+              onClick={handleGoBackClick}
+            >
+              <FaArrowLeft className={Style.arrowLeft} />
+              GO BACK
+            </Button>
+            {/* Line - Hide on md and smaller */}
+            <div className={`${Style.backbutton_line} d-none d-md-block`}></div>
+          </div>
         </Col>
       </Row>
 
@@ -207,6 +210,9 @@ const Lessons = () => {
           "d-flex flex-grow-1 justify-content-between p-0 m-0"
         )}
       >
+        <div
+          className={`${Style.question_top_line} d-block d-md-none justify-content-center p-0 m-0 mt-2 ms-3`}
+        ></div>
         {/* Logo (Unchanged) */}
         <Col
           md={1}
@@ -214,7 +220,7 @@ const Lessons = () => {
           className="d-flex flex-column d-none d-lg-block justify-content-between align-self-end p-0 m-0"
           style={{ backgroundColor: "" }}
         >
-          <div className={clsx(Style.logo, "p-0 m-0 mb-2 ms-2")}></div>
+          <div className={clsx(Style.logo, "p-0 m-0 mb-4 ms-4")}></div>
         </Col>
 
         {/* Select Topics (Cleaned) */}
@@ -226,7 +232,7 @@ const Lessons = () => {
             xs={12}
             className={clsx(
               Style.lesson_container,
-              "p-3 m-0 d-flex flex-column align-self-start",
+              "ps-3 m-0 d-flex flex-column align-self-start",
               {
                 "d-none": selectedTopic,
                 "d-md-flex": selectedTopic,
@@ -236,9 +242,6 @@ const Lessons = () => {
               backgroundColor: "",
             }}
           >
-            <div
-              className={`${Style.question_top_line} d-md-none d-inline p-0 m-0`}
-            ></div>
             <h2
               className={Style.lessonTitle}
               style={{
@@ -249,7 +252,7 @@ const Lessons = () => {
               Lesson {selectedLesson.id}: {selectedLesson.title}
             </h2>
             {selectedLesson.topics.map((topic, index) => (
-              <Card key={index} className={`${Style.topicCard} p-0 mt-3`}>
+              <Card key={index} className={`${Style.topicCard} p-0 mt-3 `}>
                 <Button
                   className={`${Style.topicButton} w-100 p-2 m-0`}
                   variant="light"
@@ -344,7 +347,7 @@ const Lessons = () => {
               >
                 {selectedTopic?.steps?.map((step, idx) => (
                   <Carousel.Item key={idx} className="h-100">
-                    <div className="d-flex h-100 w-100 justify-content-center align-items-center">
+                    <div className="d-flex h-100 w-100 justify-content-center align-items-center ">
                       <img
                         src={step.image}
                         alt={`Step ${idx + 1}`}
@@ -398,7 +401,7 @@ const Lessons = () => {
             {!selectedLesson ? (
               <div
                 className="d-flex justify-content-center align-items-center pt-5"
-                style={{ backgroundColor: "blue" }}
+                style={{ backgroundColor: "" }}
               >
                 {/* <Image
                 src={backhandIndexPointingLeft}

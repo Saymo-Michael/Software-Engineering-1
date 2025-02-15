@@ -1,56 +1,52 @@
-import React, { useState } from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// src/components/ImageCarouselModal.jsx
+import React, { useState } from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Image } from "react-bootstrap";
+import clsx from "clsx";
+import Style from "../css modules/ImageCarouselModal.module.css";
 
-import { Image } from 'react-bootstrap';
-
-import tuck from '../Images/tuck.jpg';
-import mingming from '../Images/mingming.webp';
-import linny from '../Images/linny.webp';
-
-import clsx from 'clsx';
-
-import Style from '../css modules/ImageCarouselModal.module.css';
-
-const ImageCarouselModal = ({ closeModal }) => {
-  const [selectedIndex, setSelectedIndex] = useState(0); // Track selected index
+const ImageCarouselModal = ({ closeModal, images }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleNext = () => {
-    setSelectedIndex((prevIndex) => (prevIndex + 1) % 3); // Change to next image
+    setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const handlePrev = () => {
-    setSelectedIndex((prevIndex) => (prevIndex - 1 + 3) % 3); // Change to previous image
+    setSelectedIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   return (
-    <div className={Style.carouselModalContainer} onClick={closeModal}> {/* Close on outside click */}
-      <div
-        className={Style.carousel}
-        onClick={(e) => e.stopPropagation()}  
-      >
+    <div className={Style.carouselModalContainer} onClick={closeModal}>
+      <div className={Style.carousel} onClick={(e) => e.stopPropagation()}>
         {/* Close Button (Upper Right) */}
-        <button className={Style.closeModalButton} onClick={closeModal}>X</button>
+        <button className={Style.closeModalButton} onClick={closeModal}>
+          X
+        </button>
 
         <Carousel
-          selectedItem={selectedIndex} 
-          onChange={(index) => setSelectedIndex(index)} 
+          selectedItem={selectedIndex}
+          onChange={(index) => setSelectedIndex(index)}
+          showThumbs={true}
+          infiniteLoop
+          useKeyboardArrows
         >
-          <div>
-            <Image src={linny} className={Style.picture} />
-          </div>
-          <div>
-            <Image src={mingming} className={Style.picture} />
-          </div>
-          <div>
-            <Image src={tuck} className={Style.picture} />
-          </div>
+          {images.map((src, index) => (
+            <div key={index}>
+              <Image src={src} className={Style.picture} alt={`Help guide ${index + 1}`} />
+            </div>
+          ))}
         </Carousel>
 
         {/* Navigation buttons (Next and Previous) inside the modal */}
         <div className={clsx(Style.carouselControls)}>
-          <button className={Style.prevButton} onClick={handlePrev}>Previous</button>
-          <button className={Style.nextButton} onClick={handleNext}>Next</button>
+          <button className={Style.prevButton} onClick={handlePrev}>
+            Previous
+          </button>
+          <button className={Style.nextButton} onClick={handleNext}>
+            Next
+          </button>
         </div>
       </div>
     </div>
