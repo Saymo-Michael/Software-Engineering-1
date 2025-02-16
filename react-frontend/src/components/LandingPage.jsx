@@ -157,7 +157,11 @@ const LandingPage = () => {
       {/* Third Row - 2 Equal Columns */}
       <Row className={"d-flex align-items-center pm-0 m-0"}>
         {/* Development Team Section */}
-        <Col md={6} className={clsx(Style.devTeamSection, "d-flex pm-0 m-0")}>
+        <Col
+          md={6}
+          className={clsx(Style.devTeamSection, "d-flex pm-0 m-0")}
+          id="development_team"
+        >
           <Col xs={12} className="d-flex align-items-center p-0 mb-0">
             <h6 className={Style.devTeamTitle}>Development Team</h6>
             <div className={Style.devTeamLine}></div>
@@ -168,7 +172,6 @@ const LandingPage = () => {
             xs={12}
             lg={4}
             className={clsx(Style.devProfiles_container, "text-center")}
-            id="development_team"
           >
             <Col xs={12} lg={4} className={Style.devProfile}>
               <Image src={linny} roundedCircle className={Style.devPicture} />

@@ -193,6 +193,7 @@ const Lessons = () => {
               className={Style.goBack}
               type="button"
               onClick={handleGoBackClick}
+              id="backbtn_easylevel"
             >
               <FaArrowLeft className={Style.arrowLeft} />
               GO BACK
@@ -241,6 +242,7 @@ const Lessons = () => {
             style={{
               backgroundColor: "",
             }}
+            id="lesson1"
           >
             <h2
               className={Style.lessonTitle}
@@ -276,6 +278,7 @@ const Lessons = () => {
             lg={5}
             xs={12}
             className={`${Style.lesson_container} p-3 m-0 d-flex flex-column align-self-start`}
+            id="lesson1"
           >
             {lessons.map((lesson, index) => (
               <Card
@@ -398,116 +401,82 @@ const Lessons = () => {
             }}
           >
             {/* Default View if No Lesson Selected */}
-            {!selectedLesson ? (
-              <div
-                className="d-flex justify-content-center align-items-center pt-5"
-                style={{ backgroundColor: "" }}
-              >
-                {/* <Image
-                src={backhandIndexPointingLeft}
-                alt="Lesson Icon"
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  marginBottom: "15px",
-                }}
-              /> */}
-                <p
-                  style={{
-                    fontFamily: "Big Shoulders Display",
-                    fontSize: "35px",
-                    fontWeight: "700",
-                    margin: 0,
-                    paddingLeft: "5px",
-                  }}
-                >
-                  Select a lesson to start
-                </p>
-              </div>
-            ) : (
-              <>
-                {/* Step Counter and Progress Bar */}
-                {selectedTopic && (
-                  <div className="text-center mb-3 w-100">
-                    <div
-                      className="mb-2"
-                      style={{
-                        fontFamily: "Big Shoulders Display",
-                        fontSize: "clamp(1rem, 2vw, 1.2rem)", // Responsive font
-                        color: "#666",
-                      }}
-                    >
-                      Step {index + 1} of {selectedTopic?.steps?.length}
-                    </div>
-                    <Row className="justify-content-center g-2">
-                      {selectedTopic?.steps?.map((_, i) => (
-                        <Col xs="auto" key={i}>
-                          <div
-                            style={{
-                              width: "30px",
-                              height: "5px",
-                              borderRadius: "4px",
-                              backgroundColor:
-                                i <= index ? "#007bff" : "#dee2e6",
-                              minWidth: "30px",
-                            }}
-                          />
-                        </Col>
-                      ))}
-                    </Row>
-                  </div>
-                )}
-
-                {/* Dynamic Step Text Section */}
-                <p
-                  className={clsx({
-                    "d-none": !selectedTopic,
-                    "d-flex flex-column align-items-center": selectedTopic,
-                  })}
-                  style={{
-                    fontFamily: "Big Shoulders Display",
-                    fontSize: "30px",
-                    fontWeight: "700",
-                    marginBottom: "10px",
-                    wordBreak: "break-word",
-                    padding: "0 10px",
-                  }}
-                >
-                  {selectedTopic?.steps[index]?.text}
-                </p>
-
-                {/* Navigation Buttons */}
+            {/* Step Counter and Progress Bar */}
+            {selectedTopic && (
+              <div className="text-center mb-3 w-100" id="topics">
                 <div
-                  className={clsx(
-                    "justify-content-between w-100 mt-3 p-4 m-0",
-                    {
-                      "d-none": !selectedTopic,
-                      "d-flex": selectedTopic,
-                    }
-                  )}
+                  className="mb-2"
+                  style={{
+                    fontFamily: "Big Shoulders Display",
+                    fontSize: "clamp(1rem, 2vw, 1.2rem)", // Responsive font
+                    color: "#666",
+                  }}
                 >
-                  <Button
-                    variant="secondary"
-                    style={{ fontSize: "1.2rem" }}
-                    onClick={() => !isAnimating && handleSelect(index - 1)}
-                    disabled={index === 0 || isAnimating}
-                  >
-                    Previous
-                  </Button>
-                  <Button
-                    variant="primary"
-                    style={{ fontSize: "1.2rem" }}
-                    onClick={() => !isAnimating && handleSelect(index + 1)}
-                    disabled={
-                      index === (selectedTopic?.steps?.length || 0) - 1 ||
-                      isAnimating
-                    }
-                  >
-                    Next
-                  </Button>
+                  Step {index + 1} of {selectedTopic?.steps?.length}
                 </div>
-              </>
+                <Row className="justify-content-center g-2">
+                  {selectedTopic?.steps?.map((_, i) => (
+                    <Col xs="auto" key={i}>
+                      <div
+                        style={{
+                          width: "30px",
+                          height: "5px",
+                          borderRadius: "4px",
+                          backgroundColor: i <= index ? "#007bff" : "#dee2e6",
+                          minWidth: "30px",
+                        }}
+                      />
+                    </Col>
+                  ))}
+                </Row>
+              </div>
             )}
+
+            {/* Dynamic Step Text Section */}
+            <p
+              className={clsx({
+                "d-none": !selectedTopic,
+                "d-flex flex-column align-items-center": selectedTopic,
+              })}
+              style={{
+                fontFamily: "Big Shoulders Display",
+                fontSize: "30px",
+                fontWeight: "700",
+                marginBottom: "10px",
+                wordBreak: "break-word",
+                padding: "0 10px",
+              }}
+            >
+              {selectedTopic?.steps[index]?.text}
+            </p>
+
+            {/* Navigation Buttons */}
+            <div
+              className={clsx("justify-content-between w-100 mt-3 p-4 m-0", {
+                "d-none": !selectedTopic,
+                "d-flex": selectedTopic,
+              })}
+            >
+              <Button
+                variant="secondary"
+                style={{ fontSize: "1.2rem" }}
+                onClick={() => !isAnimating && handleSelect(index - 1)}
+                disabled={index === 0 || isAnimating}
+              >
+                Previous
+              </Button>
+              <Button
+                variant="primary"
+                style={{ fontSize: "1.2rem" }}
+                onClick={() => !isAnimating && handleSelect(index + 1)}
+                disabled={
+                  index === (selectedTopic?.steps?.length || 0) - 1 ||
+                  isAnimating
+                }
+              >
+                Next
+              </Button>
+            </div>
           </Col>
         )}
 

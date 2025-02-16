@@ -26,9 +26,9 @@ const DigitalGapApp = () => {
     }
   };
 
-   const handleOrangeClick = () => {
-     navigate("/lessons");
-   };
+  const handleOrangeClick = () => {
+    navigate("/lessons");
+  };
 
   // const handleBlueClick = () => {
   //   navigate("/");
@@ -71,6 +71,7 @@ const DigitalGapApp = () => {
               className={Style.goBack}
               type="button"
               onClick={handleGoBackClick}
+              id="backbtn_skillassesment"
             >
               <FaArrowLeft className={Style.arrowLeft} />
               GO BACK
@@ -101,6 +102,7 @@ const DigitalGapApp = () => {
         xs="auto"
         className="d-flex align-items-center p-0 m-0 mb"
         style={{ backgroundColor: "" }}
+        id="skillassesment"
       >
         <Col
           md={4}
