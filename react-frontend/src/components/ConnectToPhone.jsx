@@ -54,9 +54,14 @@ const ConnectToPhone = () => {
             "d-flex justify-content-end pe-5"
           )}
         >
-          <div className={clsx(Style.goBack_container)}>  
-            <Button className={Style.goBack} type="button" onClick={handleGoBackClick}>
-                <FaArrowLeft className={Style.arrowLeft} />
+          <div className={clsx(Style.goBack_container)}>
+            <Button
+              className={Style.goBack}
+              type="button"
+              onClick={handleGoBackClick}
+              id="goback_btn"
+            >
+              <FaArrowLeft className={Style.arrowLeft} />
             </Button>
           </div>
           <div className={Style.logo}></div>
@@ -77,7 +82,13 @@ const ConnectToPhone = () => {
               "d-flex justify-content-center align-items-center"
             )}
           >
-            <Image src={phone} fluid alt="Phone Display" className="p-0 m-0" />
+            <Image
+              src={phone}
+              fluid
+              alt="Phone Display"
+              className="p-0 m-0"
+              id="phoneqr"
+            />
           </Container>
         </Col>
 
@@ -98,6 +109,7 @@ const ConnectToPhone = () => {
                   className={clsx(Style.getStarted, "mb-3")}
                   type="button"
                   onClick={handleContinueClick}
+                  id="continue_btn"
                 >
                   Continue
                 </Button>
@@ -113,40 +125,44 @@ const ConnectToPhone = () => {
                 "d-flex flex-column justify-content-end align-items-end pe-3 m-0"
               )}
             >
-              <p className={clsx(Style.followUs, "pe-5 m-0")}>Follow Us On:</p>
-              <div className={clsx(Style.social_icons, "pe-2 pb-5 m-0")}>
-                <a
-                  className="p-0"
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <LuFacebook />
-                </a>
-                <a
-                  className="p-0"
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <SiInstagram />
-                </a>
-                <a
-                  className="p-0"
-                  href="https://twitter.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaXTwitter />
-                </a>
-                <a
-                  className="p-0"
-                  href="https://www.youtube.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FiYoutube />
-                </a>
+              <div id="followus">
+                <p className={clsx(Style.followUs, "pe-5 m-0")}>
+                  Follow Us On:
+                </p>
+                <div className={clsx(Style.social_icons, "pe-2 pb-5 m-0")}>
+                  <a
+                    className="p-0"
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <LuFacebook />
+                  </a>
+                  <a
+                    className="p-0"
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <SiInstagram />
+                  </a>
+                  <a
+                    className="p-0"
+                    href="https://twitter.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaXTwitter />
+                  </a>
+                  <a
+                    className="p-0"
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FiYoutube />
+                  </a>
+                </div>
               </div>
             </Col>
 
