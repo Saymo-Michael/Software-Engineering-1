@@ -1,13 +1,12 @@
-/* background-designTop */
 :root {
   --orange: #f78c6b;
   --blue: #4ac0c0;
   --yellow: #ffd166;
 }
 
-/* logo-container */
+/* Logo and Header */
 .logo_container {
-  --background-color: green;
+  /* Kept for structure */
 }
 
 .logo {
@@ -17,9 +16,9 @@
   background-image: url(../Images/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
-  --background-color: blue;
 }
 
+/* Top Design */
 .BarShadow {
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
@@ -28,7 +27,6 @@
   display: flex;
   flex-direction: column;
   justify-items: start;
-  --background-color: red;
 }
 
 .BarTop {
@@ -56,7 +54,7 @@
   background-color: var(--yellow);
 }
 
-/* button.goBack */
+/* Back Button */
 .goBack_container {
   display: flex;
   align-items: center;
@@ -65,7 +63,6 @@
   margin-right: 50px;
   width: auto;
   height: 100%;
-  --background-color: pink;
 }
 
 .goBack {
@@ -102,27 +99,16 @@ button.goBack:hover {
   background-color: black;
 }
 
-.question {
-  margin: 20px 2px 2px 2px;
-  font-family: "Big Shoulders Display";
-  font-weight: 800;
-  font-size: 30px;
-  text-align: center;
-  --background-color: aqua;
-  color: black;
-}
-
 .question_top_line {
   height: 1px;
   width: 90%;
   background-color: black;
 }
 
-/* background-designBot */
+/* Bottom Design */
 .background_designBot {
   display: flex;
   flex-direction: column;
-  --background-color: red;
 }
 
 .BarBot {
@@ -150,12 +136,11 @@ button.goBack:hover {
   background-color: var(--yellow);
 }
 
-/*customm*/
+/* Lesson Container and Cards */
 .lesson_container {
   max-height: 80vh;
   margin-top: 20px;
-  overflow-y: auto; /* Scroll when content overflows */
-  --background-color: navy; /* Keep the navy background */
+  overflow-y: auto;
 }
 
 .lessonCard {
@@ -163,7 +148,7 @@ button.goBack:hover {
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
   padding: 10px;
-  flex: 1 0 auto; /* Allow cards to grow/shrink properly */
+  flex: 1 0 auto;
 }
 
 .lessonTitle {
@@ -185,37 +170,7 @@ button.goBack:hover {
   color: white;
 }
 
-.textCol {
-  background-color: orange;
-  padding: 20px;
-  min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lessonText {
-  font-family: "Big Shoulders Display", sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-.imageContainer {
-  background-color: violet;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.carouselImage {
-  width: 100%;
-}
-
-.mobile_scrolling {
-  overflow: hidden !important;
-}
-
-/* Smooth transitions */
+/* Carousel Custom Transitions */
 .carousel {
   overflow: hidden;
 }
@@ -226,7 +181,6 @@ button.goBack:hover {
   align-items: center;
 }
 
-/* Hide inactive slides */
 .carousel-item:not(.active) {
   position: absolute;
   display: block !important;
@@ -234,7 +188,6 @@ button.goBack:hover {
   opacity: 0;
 }
 
-/* Active slide positioning */
 .carousel-item.active {
   position: relative;
   transform: translateX(0);
@@ -242,7 +195,6 @@ button.goBack:hover {
   visibility: visible;
 }
 
-/* Next/prev slide positioning */
 .carousel-item-next:not(.carousel-item-start),
 .carousel-item-prev:not(.carousel-item-end) {
   transform: translateX(0);
@@ -250,43 +202,37 @@ button.goBack:hover {
   visibility: hidden;
 }
 
+/* Responsive Topic Text */
+.topicText {
+  font-family: "Big Shoulders Display", sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 10px;
+  word-break: break-word;
+  padding: 0 10px;
+  text-align: center;
+}
+
+/* Media Queries */
 @media (min-width: 320px) {
   .logo { 
     margin: 30px 0 0 30px;
     width: 55px;
     height: 55px;
   }
-  .question_top_line {
-    width: 90%;
-  }
-  .question {
-    margin: 10px 5% 15px 5%;
-  }
   .goBack_container {
     margin: 10px 35px 0 0; 
-    width: auto;
-    height: 100%;
   }
   .goBack {
     width: 45px;
     height: 45px;
-    font-size: 0px;
+    font-size: 0;
     border-radius: 100%;
   }
   .arrowLeft {
     margin: 0;
-    color: black;
     font-size: 22px;
   }
-}
-
-@media (min-width: 370px) {
-  .question {
-    font-size: 35px;
-  }
-}
-
-@media (min-width: 425px) {
 }
 
 @media (min-width: 768px) {
@@ -305,10 +251,6 @@ button.goBack:hover {
   }
   .BarBot {
     height: 100px;
-  }
-  .question {
-    margin: 0px 2px 20px 2px;
-    font-size: 45px;
   }
 }
 
@@ -329,9 +271,6 @@ button.goBack:hover {
   }
   .arrowLeft {
     font-size: 30px;
-  }
-  .question {
-    font-size: 35px;
   }
   .lesson_container {
     max-height: 77vh;
@@ -357,10 +296,6 @@ button.goBack:hover {
   .arrowLeft {
     font-size: 30px;
   }
-  .question {
-    margin: 0px 2px 20px 2px;
-    font-size: 50px;
-  }
   .lesson_container {
     max-height: 80vh;
   }
@@ -369,7 +304,4 @@ button.goBack:hover {
     width: 75px;
     height: 75px;
   }
-}
-
-@media (min-width: 2560px) {
 }
