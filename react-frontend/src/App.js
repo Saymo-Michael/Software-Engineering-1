@@ -1,8 +1,5 @@
 // src/App.jsx
-import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Modal from "react-modal";
-import ImageCarouselModal from "./components/ImageCarouselModal";
 import LandingPage from "./components/LandingPage";
 import ConnectToPhone from "./components/ConnectToPhone";
 import ConfidentAssesment from "./components/ConfidentAssesment";
