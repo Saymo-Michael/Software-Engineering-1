@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,33 +11,18 @@ import Style from "../css modules/Lessons.module.css";
 import onOff1 from "../Images/Lesson1/Topic1/Step1.gif";
 import onOff2 from "../Images/Lesson1/Topic1/Step2.gif";
 import onOff3 from "../Images/Lesson1/Topic1/Step3.gif";
-import onOff4 from "../Images/Lesson1/Topic1/Step4.png";
+import onOff4 from "../Images/Lesson1/Topic1/Step4.webp";
 
 import powerSave1 from "../Images/Lesson1/Topic2/Step1.gif";
 import powerSave2 from "../Images/Lesson1/Topic2/Step2.gif";
 import powerSave3 from "../Images/Lesson1/Topic2/Step3.gif";
-import powerSave4 from "../Images/Lesson1/Topic2/Step4.JPG";
-import powerSave5 from "../Images/Lesson1/Topic2/Step5.JPG";
-import powerSave6 from "../Images/Lesson1/Topic2/Step6.JPG";
-
-// New placeholders for other lessons
-const dialerStep =
-  "https://via.placeholder.com/400x300.png?text=Lesson2-Calls-Step1";
-const messagesStep1 =
-  "https://via.placeholder.com/400x300.png?text=Lesson2-Texts-Step1";
-const messagesStep2 =
-  "https://via.placeholder.com/400x300.png?text=Lesson2-Texts-Step2";
-const wallpaperStep1 =
-  "https://via.placeholder.com/400x300.png?text=Lesson3-Wallpaper-Step1";
-const wallpaperStep2 =
-  "https://via.placeholder.com/400x300.png?text=Lesson3-Wallpaper-Step2";
-const ringtoneStep1 =
-  "https://via.placeholder.com/400x300.png?text=Lesson3-Ringtones-Step1";
-const ringtoneStep2 =
-  "https://via.placeholder.com/400x300.png?text=Lesson3-Ringtones-Step2";
+import powerSave4 from "../Images/Lesson1/Topic2/Step4.webp";
+import powerSave5 from "../Images/Lesson1/Topic2/Step5.webp";
+import powerSave6 from "../Images/Lesson1/Topic2/Step6.webp";
 
 const Lessons = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [index, setIndex] = useState(0);
   const [selectedLesson, setSelectedLesson] = useState(null);
@@ -45,7 +30,7 @@ const Lessons = () => {
   const [selectedTopicIndex, setSelectedTopicIndex] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Helper functions for lesson structure
+  // Helper functions for lesson structure (kept inline)
   const createStep = (image, text) => ({ image, text });
   const createTopic = (title, steps) => ({ title, steps });
   const createLesson = (id, title, topics, locked = true) => ({
@@ -55,196 +40,190 @@ const Lessons = () => {
     topics,
   });
 
-  // Reusable steps example
-  const commonSteps = {
-    basicAction: (stepNumber, action) =>
-      createStep(
-        `https://via.placeholder.com/400x300.png?text=Step${stepNumber}`,
-        `Follow these instructions to ${action} your device`
+  // Build lessons (memoized so this array is built only once)
+  const lessons = useMemo(
+    () => [
+      createLesson(
+        1,
+        "Getting Started with Your Smartphone",
+        [
+          createTopic("Turning phone on/off", [
+            createStep(
+              onOff1,
+              "Step 1: Press and hold the PWR/LOCK key until you see the screen light up."
+            ),
+            createStep(
+              onOff2,
+              "Step 2: To turn off your phone, press and hold the PWR/LOCK key until an options menu appears."
+            ),
+            createStep(onOff3, "Step 3: Tap 'Power off' on the screen."),
+            createStep(
+              onOff4,
+              "Step 4: Wait a few seconds for the phone to shut down completely. Congratulations, you've finished this tutorial."
+            ),
+          ]),
+          createTopic("Turn Power Save Mode On/Off", [
+            createStep(
+              powerSave1,
+              "Step 1: From the main screen, slide up to display all your apps."
+            ),
+            createStep(
+              powerSave2,
+              "Step 2: Locate and tap the 'Settings' icon."
+            ),
+            createStep(
+              powerSave3,
+              "Step 3: Scroll to find 'Smart Manager' and tap it, then select 'Battery'."
+            ),
+            createStep(
+              powerSave4,
+              <>
+                Step 4: Tap the slider next to 'Normal saving mode.' If needed,
+                tap on 'Normal saving mode' to set the time when it should turn
+                on.
+                <br />
+                <br />
+                Note: For even longer battery life, you may also choose 'Super
+                saving mode.'
+              </>
+            ),
+            createStep(
+              powerSave5,
+              "Step 5: Tap the HOME key to return to the main screen."
+            ),
+            createStep(
+              powerSave6,
+              "Step 6: Your phone is now set. Well done on completing this tutorial."
+            ),
+          ]),
+        ],
+        false // Lesson 1 is unlocked by default
       ),
-  };
-
-  // Build lessons
-  const lessons = [
-    createLesson(
-      1,
-      "Getting Started with Your Smartphone",
-      [
-        createTopic("Turning phone on/off", [
+      createLesson(2, "Essential Functions", [
+        createTopic("Personalizing Your Settings", [
           createStep(
-            onOff1,
-            "Step 1: Press and hold the PWR/LOCK key until you see the screen light up."
+            "https://via.placeholder.com/400x300.png?text=Open+Settings",
+            "Step 1: Locate and open the Settings app on your smartphone."
           ),
           createStep(
-            onOff2,
-            "Step 2: To turn off your phone, press and hold the PWR/LOCK key until an options menu appears."
+            "https://via.placeholder.com/400x300.png?text=Change+Ringtone",
+            "Step 2: Tap on 'Sound' or 'Ringtone' settings. Choose a ringtone that you like."
           ),
           createStep(
-            onOff3,
-            "Step 3: Tap 'Power off' on the screen."
+            "https://via.placeholder.com/400x300.png?text=Adjust+Volume",
+            "Step 3: Adjust the volume using the slider until it reaches a comfortable level."
           ),
           createStep(
-            onOff4,
-            "Step 4: Wait a few seconds for the phone to shut down completely. Congratulations, you've finished this tutorial."
-          )
+            "https://via.placeholder.com/400x300.png?text=Adjust+Brightness",
+            "Step 4: Now tap on 'Display' settings to adjust the brightness and text size for better visibility."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Connect+WiFi",
+            "Step 5: To connect to Wi-Fi, go back to the main Settings screen, tap on 'Wi-Fi', select your network, and enter the password if required."
+          ),
         ]),
-        createTopic("Turn Power Save Mode On/Off", [
+        createTopic("Managing & Using Apps", [
           createStep(
-            powerSave1,
-            "Step 1: From the main screen, slide up to display all your apps."
+            "https://via.placeholder.com/400x300.png?text=Open+Apps",
+            "Step 1: Tap the Home button to view your app icons. Find the app you want to open and tap it."
           ),
           createStep(
-            powerSave2,
-            "Step 2: Locate and tap the 'Settings' icon."
+            "https://via.placeholder.com/400x300.png?text=Switch+Apps",
+            "Step 2: To switch between apps, double-tap the Home button or swipe up from the bottom (depending on your phone model)."
           ),
           createStep(
-            powerSave3,
-            "Step 3: Scroll to find 'Smart Manager' and tap it, then select 'Battery'."
+            "https://via.placeholder.com/400x300.png?text=Close+Apps",
+            "Step 3: In the app switcher, swipe the app off the screen to close it and free up memory."
+          ),
+        ]),
+        createTopic("Exploring the Camera & Photos", [
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Open+Camera",
+            "Step 1: Locate and open the Camera app on your smartphone."
           ),
           createStep(
-            powerSave4,
-            <>
-              Step 4: Tap the slider next to 'Normal saving mode.' If needed, tap on 'Normal saving mode' to set the time when it should turn on.
-              <br /><br />
-              Note: For even longer battery life, you may also choose 'Super saving mode.'
-            </>
+            "https://via.placeholder.com/400x300.png?text=Take+Photo",
+            "Step 2: Tap the shutter button to take a photo. Hold steady for best results."
           ),
           createStep(
-            powerSave5,
-            "Step 5: Tap the HOME key to return to the main screen."
+            "https://via.placeholder.com/400x300.png?text=View+Photo",
+            "Step 3: Tap the thumbnail in the corner of the screen to view your photo."
           ),
           createStep(
-            powerSave6,
-            "Step 6: Your phone is now set. Well done on completing this tutorial."
-          )
-        ])
-      ],
-      false // Lesson 1 unlocked by default
-    ),
-    createLesson(2, "Essential Functions", [
-      createTopic("Personalizing Your Settings", [
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Open+Settings",
-          "Step 1: Locate and open the Settings app on your smartphone."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Change+Ringtone",
-          "Step 2: Tap on 'Sound' or 'Ringtone' settings. Choose a ringtone that you like."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Adjust+Volume",
-          "Step 3: Adjust the volume using the slider until it reaches a comfortable level."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Adjust+Brightness",
-          "Step 4: Now tap on 'Display' settings to adjust the brightness and text size for better visibility."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Connect+WiFi",
-          "Step 5: To connect to Wi-Fi, go back to the main Settings screen, tap on 'Wi-Fi', select your network, and enter the password if required."
-        )
+            "https://via.placeholder.com/400x300.png?text=Share+Photo",
+            "Step 4: Tap the share icon to send the photo via message or email, or tap the trash icon to delete it."
+          ),
+        ]),
+        createTopic("Understanding & Managing Notifications", [
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=View+Notifications",
+            "Step 1: Swipe down from the top of the screen to open the notifications panel."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Customize+Notifications",
+            "Step 2: To customize which notifications you see, open Settings, tap on 'Notifications,' and adjust your preferences."
+          ),
+        ]),
       ]),
-      createTopic("Managing & Using Apps", [
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Open+Apps",
-          "Step 1: Tap the Home button to view your app icons. Find the app you want to open and tap it."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Switch+Apps",
-          "Step 2: To switch between apps, double-tap the Home button or swipe up from the bottom (depending on your phone model)."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Close+Apps",
-          "Step 3: In the app switcher, swipe the app off the screen to close it and free up memory."
-        )
+      createLesson(3, "Personalization", [
+        createTopic("Blocking Unwanted Calls & Messages", [
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Open+Phone+App",
+            "Step 1: Open the Phone app on your smartphone."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Block+Number",
+            "Step 2: Find an unwanted number in your call history, tap on it, and then tap 'Block Number.'"
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Block+Messages",
+            "Step 3: Open the Messaging app, select the unwanted message, tap and hold, and choose 'Block Contact.'"
+          ),
+        ]),
+        createTopic("Advanced Camera & Media Features", [
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Open+Camera",
+            "Step 1: Open the Camera app and tap the mode selector to see all available options."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Select+Portrait+Mode",
+            "Step 2: Choose 'Portrait mode' for a focused subject effect."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Select+Night+Mode",
+            "Step 3: For low-light conditions, switch to 'Night mode' by tapping the corresponding icon."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Apply+Filters",
+            "Step 4: Tap on the filter icon to preview and apply different filters to your photo."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Edit+Photo",
+            "Step 5: After taking a photo, tap 'Edit' to crop, adjust brightness, or enhance the image using built-in tools. Then, save your edits."
+          ),
+        ]),
+        createTopic("Voice Commands & Accessibility Features", [
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Use+Voice+Command",
+            "Step 1: For voice commands, either press and hold the Home button or say 'Hey Siri' / 'Ok Google' if your phone supports it."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Give+Command",
+            "Step 2: Clearly speak your command (for example, 'Call Mom' or 'Open Camera')."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Enable+Accessibility",
+            "Step 3: To enable screen readers, go to Settings, tap 'Accessibility,' and turn on the screen reader (such as TalkBack on Android)."
+          ),
+          createStep(
+            "https://via.placeholder.com/400x300.png?text=Customize+Accessibility",
+            "Step 4: Adjust settings like text-to-speech speed, magnification, or hearing assistance as needed."
+          ),
+        ]),
       ]),
-      createTopic("Exploring the Camera & Photos", [
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Open+Camera",
-          "Step 1: Locate and open the Camera app on your smartphone."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Take+Photo",
-          "Step 2: Tap the shutter button to take a photo. Hold steady for best results."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=View+Photo",
-          "Step 3: Tap the thumbnail in the corner of the screen to view your photo."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Share+Photo",
-          "Step 4: Tap the share icon to send the photo via message or email, or tap the trash icon to delete it."
-        )
-      ]),
-      createTopic("Understanding & Managing Notifications", [
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=View+Notifications",
-          "Step 1: Swipe down from the top of the screen to open the notifications panel."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Customize+Notifications",
-          "Step 2: To customize which notifications you see, open Settings, tap on 'Notifications,' and adjust your preferences."
-        )
-      ])
-    ]),
-    createLesson(3, "Personalization", [
-      createTopic("Blocking Unwanted Calls & Messages", [
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Open+Phone+App",
-          "Step 1: Open the Phone app on your smartphone."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Block+Number",
-          "Step 2: Find an unwanted number in your call history, tap on it, and then tap 'Block Number.'"
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Block+Messages",
-          "Step 3: Open the Messaging app, select the unwanted message, tap and hold, and choose 'Block Contact.'"
-        )
-      ]),
-      createTopic("Advanced Camera & Media Features", [
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Open+Camera",
-          "Step 1: Open the Camera app and tap the mode selector to see all available options."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Select+Portrait+Mode",
-          "Step 2: Choose 'Portrait mode' for a focused subject effect."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Select+Night+Mode",
-          "Step 3: For low-light conditions, switch to 'Night mode' by tapping the corresponding icon."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Apply+Filters",
-          "Step 4: Tap on the filter icon to preview and apply different filters to your photo."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Edit+Photo",
-          "Step 5: After taking a photo, tap 'Edit' to crop, adjust brightness, or enhance the image using built-in tools. Then, save your edits."
-        )
-      ]),
-      createTopic("Voice Commands & Accessibility Features", [
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Use+Voice+Command",
-          "Step 1: For voice commands, either press and hold the Home button or say 'Hey Siri' / 'Ok Google' if your phone supports it."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Give+Command",
-          "Step 2: Clearly speak your command (for example, 'Call Mom' or 'Open Camera')."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Enable+Accessibility",
-          "Step 3: To enable screen readers, go to Settings, tap 'Accessibility,' and turn on the screen reader (such as TalkBack on Android)."
-        ),
-        createStep(
-          "https://via.placeholder.com/400x300.png?text=Customize+Accessibility",
-          "Step 4: Adjust settings like text-to-speech speed, magnification, or hearing assistance as needed."
-        )
-      ])
-    ])
-  ];
-  
+    ],
+    []
+  );
 
   // --- State to track progress ---
   const initialTopicCompletion = {};
@@ -255,15 +234,12 @@ const Lessons = () => {
     initialTopicCompletion
   );
 
-  const location = useLocation();
   const maxLesson = location.state?.maxLesson || 1;
-
   const initialLockedLessons = {
     1: false, // Lesson 1 is always unlocked
     2: maxLesson >= 2 ? false : true,
     3: maxLesson >= 3 ? false : true,
   };
-
   const [lockedLessons, setLockedLessons] = useState(initialLockedLessons);
 
   const lessonColors = [
@@ -272,18 +248,21 @@ const Lessons = () => {
     "rgba(255, 209, 102, 1)",
   ];
 
-  // --- Navigation Handlers ---
-  const handleSelect = (selectedIndex, e) => {
-    if (!isAnimating && selectedTopic) {
-      setIsAnimating(true);
-      setIndex(selectedIndex);
-      setTimeout(() => setIsAnimating(false), 600);
-    }
-  };
+  // --- Navigation Handlers (wrapped in useCallback) ---
+  const handleSelect = useCallback(
+    (selectedIndex, e) => {
+      if (!isAnimating && selectedTopic) {
+        setIsAnimating(true);
+        setIndex(selectedIndex);
+        setTimeout(() => setIsAnimating(false), 600);
+      }
+    },
+    [isAnimating, selectedTopic]
+  );
 
-  function handleGoBackClick() {
+  const handleGoBackClick = useCallback(() => {
     if (selectedLesson) {
-      // When going back from topic view, reset topic state
+      // Reset topic view when going back to lesson list
       setSelectedTopic(null);
       setSelectedTopicIndex(null);
       setIndex(0);
@@ -291,10 +270,9 @@ const Lessons = () => {
     } else {
       navigate("/confident-assesment");
     }
-  }
+  }, [selectedLesson, navigate]);
 
-  // Marks current topic as complete and unlocks next lesson if needed
-  const markTopicComplete = () => {
+  const markTopicComplete = useCallback(() => {
     if (selectedLesson && selectedTopicIndex !== null) {
       const lessonId = selectedLesson.id;
       setTopicCompletion((prev) => {
@@ -315,7 +293,7 @@ const Lessons = () => {
       setSelectedTopicIndex(null);
       setIndex(0);
     }
-  };
+  }, [selectedLesson, selectedTopicIndex, lockedLessons]);
 
   return (
     <Container fluid className="d-flex flex-column min-vh-100 p-0 m-0">
@@ -625,4 +603,4 @@ const Lessons = () => {
   );
 };
 
-export default Lessons;
+export default React.memo(Lessons);
