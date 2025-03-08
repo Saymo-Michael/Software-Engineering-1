@@ -1,17 +1,24 @@
-// src/App.jsx
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LandingPage from "./components/LandingPage";
-import ConnectToPhone from "./components/ConnectToPhone";
-import ConfidentAssesment from "./components/ConfidentAssesment";
-import Lessons from "./components/Lessons";
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+
+// Import HelpButton normally (it's already optimized)
 import HelpButton from "./components/HelpButton";
 
-import "./App.css";
+// Lazy load route components for code splitting
+const LandingPage = lazy(() => import("./components/LandingPage"));
+const ConnectToPhone = lazy(() => import("./components/ConnectToPhone"));
+const ConfidentAssesment = lazy(() =>
+  import("./components/ConfidentAssesment")
+);
+const Lessons = lazy(() => import("./components/Lessons"));
+
+
 
 const App = () => {
   return (
     <Router>
-      <div>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/connect-to-phone" element={<ConnectToPhone />} />
@@ -19,7 +26,7 @@ const App = () => {
           <Route path="/lessons" element={<Lessons />} />
         </Routes>
         <HelpButton />
-      </div>
+      </Suspense>
     </Router>
   );
 };

@@ -1,4 +1,3 @@
-/* background-designTop */
 :root {
   --orange: #f78c6b;
   --blue: #4ac0c0;
@@ -7,28 +6,28 @@
 
 /* logo-container */
 .logo_container {
-  --background-color: green;
+  /* Removed unused --background-color property */
 }
 
 .logo {
   margin: 30px 0 0 20px;
   width: 70px;
   height: 70px;
-  background-image: url(../Images/logo.png);
+  background-image: url(../Images/logo.webp);
   background-repeat: no-repeat;
   background-size: contain;
-  --background-color: blue;
 }
 
+/* Bar Shadows */
 .BarShadow {
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* background-designTop */
 .background_designTop {
   display: flex;
   flex-direction: column;
   justify-items: start;
-  --background-color: red;
 }
 
 .BarTop {
@@ -56,16 +55,13 @@
   background-color: var(--yellow);
 }
 
-/* button.goBack */
+/* goBack button */
 .goBack_container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-right: 50px;
-  width: auto;
-  height: 100%;
-  --background-color: pink;
 }
 
 .goBack {
@@ -95,20 +91,19 @@ button.goBack:hover {
 }
 
 .backbutton_line {
-  padding: 0;
   margin: 20px 0 0 0;
   height: 1px;
   width: 100%;
   background-color: black;
 }
 
+/* Question */
 .question {
   margin: 20px 2px 2px 2px;
   font-family: "Big Shoulders Display";
   font-weight: 800;
   font-size: 30px;
   text-align: center;
-  --background-color: aqua;
   color: black;
 }
 
@@ -118,8 +113,7 @@ button.goBack:hover {
   background-color: black;
 }
 
-/* emoji */
-
+/* Emoji */
 .emoji {
   width: 30%;
 }
@@ -141,10 +135,12 @@ button.goBack:hover {
   background-color: var(--orange) !important;
   border-color: black;
 }
+
 .emoji_button_blue {
   background-color: var(--blue) !important;
   border-color: black;
 }
+
 .emoji_button_yellow {
   background-color: var(--yellow) !important;
   border-color: black;
@@ -161,7 +157,6 @@ button.goBack:hover {
 .background_designBot {
   display: flex;
   flex-direction: column;
-  --background-color: red;
 }
 
 .BarBot {
@@ -189,6 +184,7 @@ button.goBack:hover {
   background-color: var(--yellow);
 }
 
+/* Responsive styles */
 @media (min-width: 320px) {
   .mobile_margin {
     margin-bottom: 20px;
@@ -199,15 +195,13 @@ button.goBack:hover {
   .question {
     margin: 10px 5% 15px 5%;
   }
-  .logo { 
+  .logo {
     margin: 30px 0 0 30px;
     width: 55px;
     height: 55px;
   }
   .goBack_container {
-    margin: 10px 35px 0 0; 
-    width: auto;
-    height: 100%;
+    margin: 10px 35px 0 0;
   }
   .goBack {
     width: 45px;
@@ -247,7 +241,7 @@ button.goBack:hover {
     border-radius: 50px;
     margin-right: 15px;
   }
-  .arrowLeft { 
+  .arrowLeft {
     font-size: 30px;
     padding-right: 10px;
   }
@@ -259,7 +253,6 @@ button.goBack:hover {
   }
   .emoji_button {
     width: 230px !important;
-    color: white !important;
   }
   .question {
     margin: 0px 2px 20px 2px;
@@ -315,10 +308,6 @@ button.goBack:hover {
     margin-right: 20px;
     width: 210px;
     font-size: 30px;
-    border-radius: 50px;
-  }
-  .arrowLeft {
-    font-size: 30px;
   }
   .question {
     margin: 0px 2px 20px 2px;
@@ -332,5 +321,4 @@ button.goBack:hover {
   }
 }
 
-@media (min-width: 2560px) {
-}
+/* Additional media queries can be optimized and minified for production */

@@ -1,32 +1,28 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-import { Button } from "react-bootstrap";
-import { Image } from "react-bootstrap";
+import React, { useCallback } from "react";
+import { Container, Row, Col, Button, Image } from "react-bootstrap";
+// If Bootstrap CSS is imported globally, you can remove the next line:
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { LuFacebook } from "react-icons/lu";
 import { FaArrowLeft } from "react-icons/fa";
 import { SiInstagram } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiYoutube } from "react-icons/fi";
-
 import { useNavigate } from "react-router-dom";
-
 import clsx from "clsx";
 
 import Style from "../css modules/ConnectToPhone.module.css";
-import phone from "../Images/phoneQR.png";
+import phone from "../Images/phoneQR.webp";
 
 const ConnectToPhone = () => {
   const navigate = useNavigate();
 
-  const handleGoBackClick = () => {
+  const handleGoBackClick = useCallback(() => {
     navigate("/");
-  };
+  }, [navigate]);
 
-  const handleContinueClick = () => {
+  const handleContinueClick = useCallback(() => {
     navigate("/confident-assesment");
-  };
+  }, [navigate]);
 
   return (
     <Container fluid className="d-flex flex-column min-vh-100 p-0 m-0">
@@ -88,11 +84,12 @@ const ConnectToPhone = () => {
               alt="Phone Display"
               className="p-0 m-0"
               id="phoneqr"
+              loading="lazy"
             />
           </Container>
         </Col>
 
-        {/* Right nested grid: Nested grid */}
+        {/* Right nested grid */}
         <Col
           lg={4}
           md={6}
@@ -103,8 +100,7 @@ const ConnectToPhone = () => {
           <Row className="p-0 pt-4 pb-3 m-0">
             <Col className="d-flex flex-column align-items-center">
               <div className={Style.quote}>Connect your smartphone.</div>
-
-              <div className="d-flex flex-column align-items-end ">
+              <div className="d-flex flex-column align-items-end">
                 <Button
                   className={clsx(Style.getStarted, "mb-3")}
                   type="button"
@@ -169,7 +165,7 @@ const ConnectToPhone = () => {
             <Col
               className={clsx(
                 Style.background_designTop,
-                "justify-content-end  align-items-end p-0 m-0"
+                "justify-content-end align-items-end p-0 m-0"
               )}
             >
               <div
@@ -189,4 +185,4 @@ const ConnectToPhone = () => {
   );
 };
 
-export default ConnectToPhone;
+export default React.memo(ConnectToPhone);

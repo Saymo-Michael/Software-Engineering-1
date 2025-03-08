@@ -1,419 +1,418 @@
-  /* background-designTop */
-  :root {
-    --orange: #f78c6b;
-    --blue: #4ac0c0;
-    --yellow: #ffd166;
-  }
-  
-  /* Ensure rows in the nested grid divide equally */
-  .row > .col > .row {
-    margin: 0;
-  }
+/* background-designTop */
+:root {
+  --orange: #f78c6b;
+  --blue: #4ac0c0;
+  --yellow: #ffd166;
+}
 
-  /* logo-container */
-  .logo_container {
-    --background-color: red;
-  }
-  
+/* Ensure rows in the nested grid divide equally */
+.row > .col > .row {
+  margin: 0;
+}
+
+/* logo-container */
+.logo_container {
+  --background-color: red;
+}
+
+.logo {
+  margin: 30px 0 0 20px;
+  width: 70px;
+  height: 70px;
+  background-image: url(../Images/logo.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.BarShadow {
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.background_designTop {
+  display: flex;
+  flex-direction: column;
+  --background-color: blue;
+}
+
+.BarTop {
+  height: 120px;
+  border-radius: 50px 0 0 50px;
+}
+
+.orangeTop {
+  width: 90%;
+  margin-bottom: -30px;
+  z-index: 3;
+  background-color: var(--orange);
+}
+
+.blueTop {
+  width: 95%;
+  margin-bottom: -25px;
+  z-index: 2;
+  background-color: var(--blue);
+}
+
+.yellowTop {
+  width: 100%;
+  z-index: 1;
+  background-color: var(--yellow);
+}
+
+/* quote */
+.quote {
+  word-wrap: break-word;
+  margin: 10% 0 5% 0;
+  font-family: "Big Shoulders Display";
+  font-size: 50px;
+  text-align: center;
+  line-height: 1.2;
+  font-weight: 900;
+  --background-color: green;
+}
+
+/* button.getStarted */
+Button.getStarted {
+  width: 210px;
+  font-family: "Big Shoulders Display";
+  color: black;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 1% 15%;
+  border-color: black;
+  background-color: transparent;
+  border-radius: 50px;
+}
+
+button.getStarted:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-color: black;
+}
+
+.arrowRight {
+  color: black;
+  margin: 0 0 5px 10px;
+  font-size: 30px;
+}
+
+.learnMoreText_container {
+  font-family: "Big Shoulders Display";
+  margin: 0 0 10% 18%;
+}
+
+.learnMoreText {
+  width: fit-content;
+  font-family: "Big Shoulders Display";
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  color: black;
+}
+
+.learnMoreText:hover {
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* background-designBot */
+.background_designBot {
+  display: flex;
+  flex-direction: column;
+  ---background-color: black;
+}
+
+.BarBot {
+  height: 90px;
+  border-radius: 0 50px 50px 0;
+}
+
+.orangeBot {
+  width: 40%;
+  margin-bottom: -30px;
+  z-index: 3;
+  background-color: var(--orange);
+}
+
+.blueBot {
+  width: 50%;
+  margin-bottom: -40px;
+  z-index: 2;
+  background-color: var(--blue);
+}
+
+.yellowBot {
+  width: 30%;
+  z-index: 1;
+  background-color: var(--yellow);
+}
+
+.aboutUs_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  --background-color: orange;
+}
+
+.aboutUsText {
+  margin: 15% 0 0 10%;
+  font-family: "Big Shoulders Display";
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.aboutUsTextP {
+  margin: 0 0 8% 12%;
+  padding: 0 10% 0 0;
+  font-family: "Big Shoulders Display";
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.phone_container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  --background-color: purple;
+}
+
+.phone {
+  width: 550px;
+  height: auto;
+}
+
+/* Development Team Section */
+.devTeamSection {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  font-family: "Big Shoulders Display";
+  --background-color: pink;
+}
+
+.devTeamTitle {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin: 0 0 0 2%;
+  font-size: 16px;
+}
+
+.devTeamLine {
+  flex-grow: 1;
+  height: 1px;
+  background-color: black;
+  margin-left: 5px;
+}
+
+.devProfiles_container {
+  display: flex;
+  flex-direction: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  --background-color: black;
+}
+
+.devProfile {
+  display: flex;
+  flex-direction: row;
+  --background-color: green;
+}
+
+.devPicture {
+  display: flex;
+  margin: 10%;
+  width: 35px;
+  height: 60px;
+  margin: 2% 10% 0 2%;
+  object-fit: cover;
+  flex: 1 1 30%;
+  max-width: 80px;
+  background: #d3d3d3;
+}
+
+.devName {
+  display: flex;
+  font-weight: bold;
+  line-height: 15px;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.devRole {
+  display: flex;
+  font-size: 11px;
+  color: gray;
+}
+
+.followUs_container {
+  display: flex;
+  line-height: 15px;
+  --background-color: brown;
+}
+
+.followUs {
+  font-family: "Big Shoulders Display";
+  font-size: 25px;
+  font-weight: 700;
+  padding: 6% 0 0 8%;
+}
+
+.social_icons {
+  display: flex;
+  justify-content: space-evenly;
+  --background-color: red;
+}
+
+.social_icons a {
+  color: black;
+  font-size: 25px;
+  --background-color: white;
+}
+
+@media (min-width: 320px) {
   .logo {
-    margin: 30px 0 0 20px;
+    width: 50px;
+    height: 50px;
+  }
+  .BarTop {
+    height: 90px;
+  }
+  .BarBot {
+    height: 90px;
+  }
+}
+
+@media (min-width: 370px) {
+  .logo {
     width: 70px;
     height: 70px;
-    background-image: url(../Images/logo.png);
-    background-repeat: no-repeat;
-    background-size: contain;
   }
-  
-  .BarShadow {
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  .BarTop {
+    height: 110px;
   }
-  
-  .background_designTop {
-    display: flex;
-    flex-direction: column;
-    --background-color: blue;
+  .BarBot {
+    height: 110px;
   }
-  
-  .BarTop {   
+}
+
+@media (min-width: 425px) {
+  .BarTop {
     height: 120px;
-    border-radius: 50px 0 0 50px;
   }
-  
-  .orangeTop {
-    width: 90%;
-    margin-bottom: -30px;
-    z-index: 3;
-    background-color: var(--orange);
+  .BarBot {
+    height: 120px;
   }
-  
-  .blueTop {
-    width: 95%;
-    margin-bottom: -25px;
-    z-index: 2;
-    background-color: var(--blue);
-  }
-  
-  .yellowTop {
-    width: 100%;
-    z-index: 1;
-    background-color: var(--yellow);
-  }
-  
-  /* quote */
+}
+
+@media (min-width: 768px) {
   .quote {
-    word-wrap: break-word;
-    margin: 10% 0 5% 0;
-    font-family: "Big Shoulders Display";
-    font-size: 50px;
-    text-align: center;
-    line-height: 1.2;
+    margin: 30px 0 20px 0;
+    font-size: 100px;
     font-weight: 900;
-    --background-color: green;
   }
-  
-  /* button.getStarted */   
   Button.getStarted {
-    width: 210px;
-    font-family: "Big Shoulders Display";
-    color: black;
-    font-size: 30px;
-    font-weight: 700;
-    margin: 0 0 1% 15%;
+    margin: 0 0 1% 20%;
     border-color: black;
     background-color: transparent;
     border-radius: 50px;
   }
-  
-  button.getStarted:hover {
-    background-color: rgba(0, 0, 0, 0.15);
-    border-color: black;
-  }
-
-  .arrowRight {
-    color: black;
-    margin: 0 0 5px 10px;
-    font-size: 30px;
-  }
-  
-  .learnMoreText_container {
-    font-family: "Big Shoulders Display"; 
-    margin: 0 0 10% 18%;
-  }
-
   .learnMoreText {
-    width: fit-content;
+    font-size: 25px;
     font-family: "Big Shoulders Display";
-    font-size: 20px;
-    font-weight: 400;
-    text-decoration: none;
-    color: black;
+    margin: 0 0 1% 8%;
   }
+  .aboutUsText {
+    font-size: 35px;
+  }
+  .aboutUsTextP {
+    font-size: 25px;
+  }
+}
 
-  .learnMoreText:hover {
-    color: gray;
-    text-decoration: underline;
-    cursor: pointer;
+@media (min-width: 1024px) {
+  .quote {
+    font-size: 85px;
+    font-weight: 900;
   }
-  /* background-designBot */
-  .background_designBot {
+  .phone_container {
     display: flex;
-    flex-direction: column;
-    ---background-color: black;
   }
-  
+  .BarTop {
+    height: 90px;
+  }
   .BarBot {
     height: 90px;
-    border-radius: 0 50px 50px 0;
   }
-  
-  .orangeBot {
-    width: 40%;
-    margin-bottom: -30px;
-    z-index: 3;
-    background-color: var(--orange);
+  .followUs {
+    font-size: 35px;
   }
-  
-  .blueBot {
-    width: 50%;
-    margin-bottom: -40px;
-    z-index: 2;
-    background-color: var(--blue);
-  }
-  
-  .yellowBot {
-    width: 30%;
-    z-index: 1;
-    background-color: var(--yellow);
-  }
-  
-  .aboutUs_container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: start;
-    flex-direction: column;
-    width: 100%;
-    --background-color: orange;
-  }
-
-  .aboutUsText {
-    margin: 15% 0 0 10%;
-    font-family: "Big Shoulders Display";
-    font-size: 26px;
-    font-weight: 700;
-  }
-
-  .aboutUsTextP {
-    margin: 0 0 8% 12%;
-    padding: 0 10% 0 0;
-    font-family: "Big Shoulders Display";
-    font-size: 20px;
-    font-weight: 400;
-  }
-
-  .phone_container {  
-    display: none;
-    justify-content: center;
-    align-items: center;
-    --background-color: purple;
-  }
-
-  .phone {
-    width: 550px;
-    height: auto;
-  }
-
-  /* Development Team Section */
-  .devTeamSection {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    font-family: "Big Shoulders Display";
-    --background-color: pink; 
-  }
-
-  .devTeamTitle {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    margin: 0 0 0 2%;
-    font-size: 16px;
-  }
-
-  .devTeamLine {
-    flex-grow: 1;
-    height: 1px;
-    background-color: black;
-    margin-left: 5px;
-  }
-
-  .devProfiles_container {
-    display: flex;
-    flex-direction: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    --background-color: black;
-  }
-
-  .devProfile {
-    display: flex;
-    flex-direction: row;
-    --background-color: green;
-  }
-
   .devPicture {
-    display: flex;
-    margin: 10%;
-    width: 35px;
-    height: 60px;
-    margin: 2% 10% 0 2%;
-    object-fit: cover;
-    flex: 1 1 30%; 
-    max-width: 80px;
-    background: #d3d3d3;
+    margin: 2% 10% 0 8%;
   }
+  .devTeamSection {
+    width: 70%;
+  }
+  .social_icons a {
+    font-size: 35px;
+  }
+}
 
+@media (min-width: 1440px) {
+  .quote {
+    font-size: 110px;
+    margin: 0 0 1% 18%;
+  }
+  .BarTop {
+    height: 120px;
+  }
+  .BarBot {
+    height: 120px;
+  }
+  .followUs {
+    font-size: 45px;
+  }
+  .social_icons a {
+    font-size: 40px;
+  }
+  Button.getStarted {
+    margin: 0 0 1% 45%;
+  }
+  .learnMoreText_container {
+    margin: 0 0 2% 42%;
+  }
+  .aboutUsText {
+    font-size: 45px;
+    margin: 10% 0 0 10%;
+  }
+  .devTeamTitle {
+    font-size: 25px;
+  }
+  .devProfiles_container {
+    justify-content: center;
+  }
+  .devPicture {
+    width: 50px;
+    height: 75px;
+    margin: 2% 5% 0 2%;
+  }
   .devName {
-    display: flex;
-    font-weight: bold;
-    line-height: 15px;
-    font-size: 18px;
+    font-size: 25px;
     margin-top: 5px;
   }
-
   .devRole {
-    display: flex;
-    font-size: 11px;
-    color: gray;
+    font-size: 18px;
   }
-
-  .followUs_container {
-    display: flex;
-    line-height: 15px;
-    --background-color: brown;
-  }
-
-  .followUs {
-    font-family: "Big Shoulders Display";
-    font-size: 25px;
-    font-weight: 700;
-    padding: 6% 0 0 8%;
-  }
-  
   .social_icons {
-    display: flex;
-    justify-content: space-evenly;
-    --background-color: red;
+    justify-content: center;
   }
-  
   .social_icons a {
-    color: black;
-    font-size: 25px;
-    --background-color: white;
+    margin: 0 0 0 20px;
   }
+}
 
-  
-  @media (min-width: 320px) {
-    .logo {
-      width: 50px;
-      height: 50px;
-    }
-
-    .BarTop {
-      height: 90px;
-    }
-    .BarBot {
-      height: 90px;
-    }
-  }
-  
-  @media (min-width: 370px) {
-    .logo {
-      width: 70px;
-      height: 70px;
-    }
-    .BarTop {
-      height: 110px;
-    }
-    .BarBot {
-      height: 110px;
-    }
-  }
-  
-  @media (min-width: 425px) {
-    .BarTop {
-      height: 120px;
-    }
-    .BarBot {
-      height: 120px;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .quote {
-      margin: 30px 0 20px 0;
-      font-size: 100px;
-      font-weight: 900;
-    }
-    Button.getStarted {
-      margin: 0 0 1% 20%;
-      border-color: black;
-      background-color: transparent;
-      border-radius: 50px;
-    }
-    .learnMoreText {
-      font-size: 25px;
-      font-family: "Big Shoulders Display";
-      margin: 0 0 1% 8%;
-    }
-    .aboutUsText {
-      font-size: 35px;
-    }
-    .aboutUsTextP {
-      font-size: 25px;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .quote {
-      font-size: 85px;
-      font-weight: 900;
-    }
-    .phone_container {
-      display: flex;
-    }
-    .BarTop {
-      height: 90px;
-    }
-    .BarBot {
-      height: 90px;
-    }
-    .followUs {
-      font-size: 35px;
-    }
-    .devPicture {
-      margin: 2% 10% 0 8%;
-    }
-    .devTeamSection {
-      width: 70%;
-    }
-    .social_icons a{
-      font-size: 35px;
-    }
-  }
-  
-  @media (min-width: 1440px) {
-    .quote {
-      font-size: 110px;
-      margin: 0 0 1% 18%;
-    }
-    .BarTop {
-      height: 120px;
-    }
-    .BarBot {
-      height: 120px;
-    } 
-    .followUs {
-      font-size: 45px;
-    }
-    .social_icons a{
-      font-size: 40px;
-    }  
-    Button.getStarted {
-      margin: 0 0 1% 45%;
-    }
-    .learnMoreText_container {
-      margin: 0 0 2% 42%;
-    }
-    .aboutUsText {
-      font-size: 45px;
-      margin: 10% 0 0 10%;
-    }
-    .devTeamTitle {
-      font-size: 25px;
-    }
-    .devProfiles_container {
-      justify-content: center;
-    }
-    .devPicture {
-      width: 50px;
-      height: 75px;
-      margin: 2% 5% 0 2%;
-    }
-    .devName {
-      font-size: 25px;
-      margin-top: 5px;
-    }
-    .devRole {
-      font-size: 18px;
-    }
-    .social_icons {
-      justify-content: center;
-    }
-    .social_icons a {
-      margin: 0 0 0 20px;
-    }
-  }
-  
-  @media (min-width: 2560px) {
-  }
-  
+@media (min-width: 2560px) {
+  /* Additional adjustments for very large screens if needed */
+}
